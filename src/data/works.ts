@@ -1,0 +1,71 @@
+/**
+ * 작업물 데이터 — 여기만 고치면 사이트 내용이 바뀝니다.
+ *
+ * 이미지 넣는 법
+ *   1) 이미지 파일을 public/works/ 폴더에 넣습니다. (예: public/works/02-thumb.webp)
+ *   2) 아래 항목의 thumbnail / image 에 'works/02-thumb.webp' 처럼 적습니다. (앞에 / 없이)
+ *   - thumbnail : HOME 썸네일 (일반 작업 1:1, 졸업작품 가로형으로 잘려 보임)
+ *   - image     : 상세 페이지 대표 이미지 (원본 비율 그대로 표시)
+ *   - ratio     : 대표 이미지 비율 — 'portrait'(세로형) | 'square'(정사각형) | 'wide'(가로형)
+ *                 세로형·정사각형 → PC에서 왼쪽 이미지 + 오른쪽 설명
+ *                 가로형           → PC에서 위 이미지 + 아래 설명
+ *   - gallery   : 상세 페이지 하단 추가 이미지 (선택)
+ *   - link      : 웹 기반 작품의 체험 링크 (선택)
+ *
+ * 권장: 썸네일 1200px, 대표 이미지 긴 변 2000px 이하의 WebP/JPG (모바일 속도)
+ */
+
+export type ImageRatio = 'portrait' | 'square' | 'wide';
+
+export interface WorkImage {
+  src: string;
+  alt?: string;
+}
+
+export interface Work {
+  slug: string; // 주소에 쓰이는 이름 (영문 소문자, 하이픈)
+  title: string;
+  category: string;
+  year: string;
+  featured?: boolean;
+  thumbnail?: string;
+  image?: string;
+  imageAlt?: string;
+  ratio: ImageRatio;
+  description: string[]; // 문단 단위
+  gallery?: WorkImage[];
+  link?: { url: string; label?: string };
+  tone?: string; // 이미지가 없을 때 플레이스홀더 색 (tone1~tone10)
+}
+
+const placeholderText = ['텍스트를 입력하세요.', '작품 소개와 제작 의도는 나중에 이 자리에 입력하면 됩니다.'];
+
+// 임시 비율 — 실제 이미지가 정해지면 작품마다 바꿔 주세요.
+const previewRatios: ImageRatio[] = ['portrait', 'square', 'wide', 'portrait', 'square', 'portrait', 'square', 'wide', 'square', 'portrait'];
+
+export const works: Work[] = [
+  {
+    slug: 'when-love-responds',
+    title: 'When Love Responds',
+    category: 'Interactive Media Art',
+    year: '2026',
+    featured: true,
+    ratio: 'wide',
+    description: placeholderText,
+    // 통합웹 메인 화면 스크린샷이 준비되면:
+    // thumbnail: 'works/when-love-responds-thumb.webp',
+    // image: 'works/when-love-responds.webp',
+    // link: { url: 'https://...', label: '작품 체험하기' },
+  },
+  ...previewRatios.map<Work>((ratio, i) => ({
+    slug: `work-${String(i + 2).padStart(2, '0')}`,
+    title: '작품명을 입력하세요',
+    category: '분야',
+    year: '연도',
+    ratio,
+    description: placeholderText,
+    tone: `tone${i + 1}`,
+  })),
+];
+
+export const findWork = (slug: string | undefined) => works.find((w) => w.slug === slug);
