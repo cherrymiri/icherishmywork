@@ -38,11 +38,14 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(ellipse 98% 72% at -7% 115%,
-    rgba(255, 133, 182, .75) 0%,
-    rgba(255, 211, 227, .62) 32%,
-    rgba(255, 211, 227, .26) 49%,
-    rgba(255, 211, 227, 0) 73%);
+  /* 왼쪽 아래에서 시작해 화면 중앙까지 넓게 확산, 상단 로고 영역은 흰색 유지 */
+  background: radial-gradient(ellipse 150% 120% at -8% 110%,
+    rgba(255, 133, 182, .72) 0%,
+    rgba(255, 211, 227, .62) 24%,
+    rgba(255, 211, 227, .42) 42%,
+    rgba(255, 211, 227, .20) 60%,
+    rgba(255, 211, 227, .07) 74%,
+    rgba(255, 211, 227, 0) 86%);
 }
 #root { position: relative; z-index: 1; }
 
@@ -300,11 +303,13 @@ a.archive-item:hover { color: #dc467c; }
 @media (max-width: 700px) {
   :root { --space: 18px; --gap: 12px; }
   body::before {
-    background: radial-gradient(ellipse 125% 67% at -18% 110%,
-      rgba(255, 133, 182, .72) 0%,
-      rgba(255, 211, 227, .55) 34%,
-      rgba(255, 211, 227, .19) 53%,
-      rgba(255, 211, 227, 0) 75%);
+    background: radial-gradient(ellipse 200% 100% at -20% 108%,
+      rgba(255, 133, 182, .70) 0%,
+      rgba(255, 211, 227, .58) 24%,
+      rgba(255, 211, 227, .40) 42%,
+      rgba(255, 211, 227, .19) 60%,
+      rgba(255, 211, 227, .06) 74%,
+      rgba(255, 211, 227, 0) 86%);
   }
   .hero-logo-wrap { height: clamp(125px, 31vw, 176px); padding: 26px 12px 18px; }
   .hero-logo-slot { width: 92%; }
