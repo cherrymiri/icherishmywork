@@ -173,6 +173,16 @@ html { background: #FFFDFC; }
 /* 원본 비율 썸네일 (포스터): 잘림 없이 width 100% / height auto */
 .work-photo.natural { aspect-ratio: auto; }
 .work-photo.natural img { position: static; height: auto; object-fit: initial; }
+/* 포스터: 5:7 칸 안에 원본 비율 그대로(contain), 남는 여백은 투명 → 사이트 배경이 보임.
+   호버 그림자는 빈 여백이 아닌 포스터 모양에만 적용 */
+.work-photo.poster-frame { background: transparent; overflow: visible; }
+.work-photo.poster-frame img { transition: filter .35s ease; }
+@media (hover: hover) {
+  .work:hover .work-photo.poster-frame { box-shadow: none; }
+  .work:hover .work-photo.poster-frame img { filter: drop-shadow(0 20px 17px rgba(91, 44, 57, .16)); }
+}
+.work:focus-visible .work-photo.poster-frame { box-shadow: none; }
+.work:focus-visible .work-photo.poster-frame img { filter: drop-shadow(0 20px 17px rgba(91, 44, 57, .16)); }
 .work-info {
   position: absolute; left: 0; right: 0; top: 100%;
   padding-top: 14px; opacity: 0; transform: translateY(7px);
