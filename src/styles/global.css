@@ -143,8 +143,8 @@ body::before {
   box-shadow: 0 0 0 rgba(70, 22, 42, 0);
 }
 .featured .work-photo { aspect-ratio: 16 / 9; }
-/* 졸업작품: PC에서 가로 75%, 가운데 정렬 (높이는 기존과 동일) */
-.works-grid > li.featured .work { width: 75%; margin: 0 auto; }
+/* WORKS 영역 전체: PC에서 가로 75%, 가운데 정렬 — 졸업작품과 2열 그리드의 좌우 끝선 일치 */
+.works-grid { width: 75%; margin-left: auto; margin-right: auto; }
 .work-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .work-photo.fit-contain img { object-fit: contain; }
 .work-info {
@@ -312,7 +312,7 @@ a.archive-item:hover { color: #dc467c; }
   .menu-trigger { display: block; }
 
   .works-grid { gap: 24px var(--gap); padding-bottom: 36px; }
-  .works-grid > li.featured .work { width: 100%; }
+  .works-grid { width: 100%; }
   .featured-art .placeholder-content { gap: 8px; }
   .featured-art .circles { gap: 6px; }
   .featured-art .circles i { width: 19px; height: 28px; }
