@@ -56,6 +56,20 @@ export default function Header() {
     measure();
   }, [pathname, measure]);
 
+  // 레이아웃이 바뀌면(스크롤바 등장, 글꼴·이미지 로딩, 창 크기 등) 자동으로 다시 측정
+  useEffect(() => {
+    if (!('ResizeObserver' in window)) return;
+    let raf = 0;
+    const ro = new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure); });
+    ro.observe(document.documentElement);
+    if (smallSlot.current) ro.observe(smallSlot.current);
+    const hero = document.getElementById('hero-logo-slot');
+    if (hero) ro.observe(hero);
+    document.fonts?.ready.then(measure).catch(() => {});
+    window.addEventListener('load', measure);
+    return () => { ro.disconnect(); cancelAnimationFrame(raf); window.removeEventListener('load', measure); };
+  }, [pathname, measure]);
+
   useEffect(() => {
     let raf = 0;
     const onResize = () => {
@@ -80,21 +94,12 @@ export default function Header() {
     }
   }, [animate]);
 
-  // 로고 transform 계산
+  // 로고 위치·크기 계산 — 크기는 width 로 직접 지정(비율 계산 없음)해서, 측정이 한 번 어긋나도 비정상적으로 커지지 않음
   let style: React.CSSProperties | undefined;
   if (boxes) {
     const { big, small } = boxes;
-    if (big) {
-      const s = small.w / big.w;
-      style = {
-        width: big.w,
-        transform: compact
-          ? `translate3d(${small.x}px, ${small.y}px, 0) scale(${s})`
-          : `translate3d(${big.x}px, ${big.y}px, 0) scale(1)`,
-      };
-    } else {
-      style = { width: small.w, transform: `translate3d(${small.x}px, ${small.y}px, 0)` };
-    }
+    const target = big && !compact ? big : small;
+    style = { width: target.w, transform: `translate3d(${target.x}px, ${target.y}px, 0)` };
   }
 
   const onBrandClick = (e: React.MouseEvent) => {

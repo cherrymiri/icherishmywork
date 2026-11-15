@@ -94,7 +94,7 @@ html { background: #FFFDFC; }
   position: fixed; z-index: 101; top: 0; left: 0;
   display: block; padding: 0; border: 0; background: none;
   transform-origin: 0 0;
-  transition: transform .52s var(--ease), opacity .28s ease;
+  transition: transform .52s var(--ease), width .52s var(--ease), opacity .28s ease;
 }
 .brand img { display: block; width: 100%; height: auto; }
 .brand.is-measuring { opacity: 0; transition: none; }
