@@ -31,15 +31,35 @@ button { cursor: pointer; }
 button:focus-visible, a:focus-visible { outline: 2px solid #e74786; outline-offset: 4px; }
 img { max-width: 100%; }
 
-/* 배경: 화면 왼쪽 아래에 고정된 형광 핑크 빛 (V5) */
+/* 배경: 화면 왼쪽 아래에 고정된 형광 핑크 빛
+   iOS Safari 대응:
+   - 레이어 높이를 '가장 큰 화면 높이'(lvh)로 고정 → 하단 주소창이 접혀도 레이어가 화면보다 짧아지지 않음
+     (inset:0 은 주소창 변화에 늦게 따라와, 그 사이 레이어 아래가 비면서 수평 경계가 생겼음)
+   - 그라데이션 크기·위치를 레이어 % 가 아닌 vw / svh 로 지정 → 레이어 크기가 바뀌어도 그라데이션은 움직이지 않음
+     svh(주소창이 펼쳐진 작은 화면 높이) 기준이라 원래 디자인 위치 유지, 주소창이 접히면 아래로 자연스럽게 이어짐
+   - 자체 합성 레이어(translateZ)로 스크롤 중 다시 그리기 지연 방지 */
+html { background: #FFFDFC; }
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;                                          /* 구형 브라우저용 */
+  height: calc(100lvh + env(safe-area-inset-bottom, 0px));
   pointer-events: none;
   z-index: 0;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
   /* 왼쪽 아래에서 시작해 화면 중앙까지 넓게 확산, 상단 로고 영역은 흰색 유지 */
-  background: radial-gradient(ellipse 150% 120% at -8% 110%,
+  background: radial-gradient(ellipse 150vw 120vh at -8vw 110vh,
+    rgba(255, 133, 182, .72) 0%,
+    rgba(255, 211, 227, .62) 24%,
+    rgba(255, 211, 227, .42) 42%,
+    rgba(255, 211, 227, .20) 60%,
+    rgba(255, 211, 227, .07) 74%,
+    rgba(255, 211, 227, 0) 86%);
+  background: radial-gradient(ellipse 150vw 120svh at -8vw 110svh,
     rgba(255, 133, 182, .72) 0%,
     rgba(255, 211, 227, .62) 24%,
     rgba(255, 211, 227, .42) 42%,
@@ -306,7 +326,14 @@ a.archive-item:hover { color: #dc467c; }
 @media (max-width: 700px) {
   :root { --space: 18px; --gap: 12px; }
   body::before {
-    background: radial-gradient(ellipse 200% 100% at -20% 108%,
+    background: radial-gradient(ellipse 200vw 100vh at -20vw 108vh,
+      rgba(255, 133, 182, .70) 0%,
+      rgba(255, 211, 227, .58) 24%,
+      rgba(255, 211, 227, .40) 42%,
+      rgba(255, 211, 227, .19) 60%,
+      rgba(255, 211, 227, .06) 74%,
+      rgba(255, 211, 227, 0) 86%);
+    background: radial-gradient(ellipse 200vw 100svh at -20vw 108svh,
       rgba(255, 133, 182, .70) 0%,
       rgba(255, 211, 227, .58) 24%,
       rgba(255, 211, 227, .40) 42%,
