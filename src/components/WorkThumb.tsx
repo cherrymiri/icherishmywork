@@ -20,11 +20,8 @@ export default function WorkThumb({ work }: { work: Work }) {
     }).join(', ');
     return (
       <div
-        className={`work-photo${work.thumbnailFit === 'contain' ? ' fit-contain' : ''}${work.thumbnailSize ? ' natural' : ''}${work.thumbnailAspect ? ' poster-frame' : ''}`}
-        style={{
-          ...(work.thumbnailBg ? { background: work.thumbnailBg } : {}),
-          ...(work.thumbnailAspect ? { aspectRatio: work.thumbnailAspect } : {}),
-        }}
+        className={`work-photo${work.thumbnailFit === 'contain' ? ' fit-contain' : ''}${work.thumbnailSize ? ' natural' : ''}`}
+        style={work.thumbnailBg ? { background: work.thumbnailBg } : undefined}
       >
         <picture>
           {work.thumbnailMobile && <source media="(max-width: 700px)" srcSet={asset(work.thumbnailMobile)} />}
