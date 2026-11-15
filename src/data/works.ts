@@ -162,7 +162,7 @@ export const works: Work[] = [
     description: placeholderText,
     thumbnail: 'works/poster-02-thumb.webp',
     thumbnailSrcSet: 'works/poster-02-thumb-600.webp 600w, works/poster-02-thumb.webp 1000w',
-    thumbnailSize: [1000, 1250],
+    thumbnailSize: [1000, 1500], // 썸네일만 2:3 (위아래 단색 확장) — 상세는 원본 4:5
     image: 'works/poster-02-full.webp',
     imageSize: [1080, 1350],
     imageAlt: '널따라가 지훈 포스터',
@@ -218,7 +218,7 @@ export const works: Work[] = [
     description: placeholderText,
     thumbnail: 'works/poster-06-thumb.webp',
     thumbnailSrcSet: 'works/poster-06-thumb-600.webp 600w, works/poster-06-thumb.webp 1000w',
-    thumbnailSize: [1000, 1250],
+    thumbnailSize: [1000, 1500], // 썸네일만 2:3 (위아래 단색 확장) — 상세는 원본 4:5
     image: 'works/poster-06-full.webp',
     imageSize: [1080, 1350],
     imageAlt: '규진 붐 별 포스터',
