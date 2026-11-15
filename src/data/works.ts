@@ -38,6 +38,7 @@ export interface Work {
   imageAlt?: string;
   ratio: ImageRatio;
   description: string[]; // 문단 단위
+  video?: { src: string; poster?: string }; // 상세 페이지 대표 영상 (있으면 이미지 대신 표시)
   gallery?: WorkImage[];
   link?: { url: string; label?: string };
   tone?: string; // 이미지가 없을 때 플레이스홀더 색 (tone1~tone10)
@@ -94,5 +95,30 @@ export const works: Work[] = [
     tone: `tone${i + 1}`,
   })),
 ];
+
+// ── 실제 작업물 (그리드 첫 줄 왼쪽·오른쪽) ──
+// 왼쪽: 전시 공간 — 썸네일 '기말최종이미지.png' → 영상 '전시공간 기말프로젝트 영상 최종.mp4'
+works[1] = {
+  slug: 'exhibition-space',
+  title: '작품명을 입력하세요',
+  category: '3D',
+  year: '연도',
+  ratio: 'square',
+  description: placeholderText,
+  thumbnail: 'works/exhibition-space-thumb.webp',
+  thumbnailBg: '#040404',
+  video: { src: 'works/exhibition-space.mp4', poster: 'works/exhibition-space-poster.webp' },
+};
+// 오른쪽: 핑크 3D 공간 — 썸네일은 영상 181번째 프레임 → 영상 '전시공간블렌더영상0001-0250.mp4'
+works[2] = {
+  slug: 'pink-room',
+  title: '작품명을 입력하세요',
+  category: '3D',
+  year: '연도',
+  ratio: 'square',
+  description: placeholderText,
+  thumbnail: 'works/pink-room-thumb.webp',
+  video: { src: 'works/pink-room.mp4', poster: 'works/pink-room-poster.webp' },
+};
 
 export const findWork = (slug: string | undefined) => works.find((w) => w.slug === slug);

@@ -13,7 +13,7 @@ export default function WorkDetail() {
   useDocumentTitle(work?.title === '작품명을 입력하세요' ? 'WORKS' : work?.title);
   if (!work) return <Navigate to="/" replace />;
 
-  const visualClass = work.image
+  const visualClass = work.image || work.video
     ? 'project-visual has-image'
     : `project-visual ${work.featured ? 'featured-art' : `placeholder ${work.tone ?? 'tone1'}`}`;
 
@@ -22,7 +22,18 @@ export default function WorkDetail() {
       <div className="inner">
         <article className={`project-layout layout-${work.ratio}`}>
           <figure className={visualClass}>
-            {work.image ? (
+            {work.video ? (
+              <video
+                src={asset(work.video.src)}
+                poster={work.video.poster ? asset(work.video.poster) : undefined}
+                controls
+                playsInline
+                preload="metadata"
+                width={1080}
+                height={1080}
+                aria-label={`${work.title} 영상`}
+              />
+            ) : work.image ? (
               <img src={asset(work.image)} alt={work.imageAlt ?? work.title} decoding="async" fetchpriority="high" />
             ) : work.featured ? (
               <FeaturedPlaceholder withTitle={false} />
