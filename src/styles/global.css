@@ -31,27 +31,26 @@ button { cursor: pointer; }
 button:focus-visible, a:focus-visible { outline: 2px solid #e74786; outline-offset: 4px; }
 img { max-width: 100%; }
 
-/* 배경: 화면 왼쪽 아래에 고정된 형광 핑크 빛
+/* 배경: 화면 왼쪽 아래에 고정된 형광 핑크 빛 — 사이트 공통 최하단 레이어 (.bg-layer, index.html)
    iOS Safari 대응:
-   - 레이어 높이를 '가장 큰 화면 높이'(lvh)로 고정 → 하단 주소창이 접혀도 레이어가 화면보다 짧아지지 않음
-     (inset:0 은 주소창 변화에 늦게 따라와, 그 사이 레이어 아래가 비면서 수평 경계가 생겼음)
-   - 그라데이션 크기·위치를 레이어 % 가 아닌 vw / svh 로 지정 → 레이어 크기가 바뀌어도 그라데이션은 움직이지 않음
-     svh(주소창이 펼쳐진 작은 화면 높이) 기준이라 원래 디자인 위치 유지, 주소창이 접히면 아래로 자연스럽게 이어짐
-   - 자체 합성 레이어(translateZ)로 스크롤 중 다시 그리기 지연 방지 */
+   - position: fixed 레이어는 iOS Safari(특히 하단 주소창이 떠 있는 최신 버전)에서 주소창 영역 아래로
+     그려지지 않아 핑크가 수평으로 잘렸음 → 페이지 흐름 안의 sticky 레이어로 변경
+     (일반 콘텐츠처럼 주소창 아래까지 그려지고, 스크롤해도 화면 상단에 붙어 있음)
+   - 높이는 가장 큰 화면 높이(lvh) → 주소창이 접혀도 레이어가 화면보다 짧아지지 않음
+   - 그라데이션 크기·위치는 vw / svh 기준 → 레이어 높이가 바뀌어도 그라데이션이 움직이지 않음 */
 html { background: #FFFDFC; }
-body::before {
-  content: "";
-  position: fixed;
+.bg-layer {
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  left: 0;
+  display: block;
   width: 100%;
-  height: 100vh;                                          /* 구형 브라우저용 */
+  height: 100vh;                                           /* 구형 브라우저용 */
   height: calc(100lvh + env(safe-area-inset-bottom, 0px));
+  margin-bottom: -100vh;
+  margin-bottom: calc(-100lvh - env(safe-area-inset-bottom, 0px));   /* 레이아웃 높이에 영향 없음 */
   pointer-events: none;
   z-index: 0;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  /* 왼쪽 아래에서 시작해 화면 중앙까지 넓게 확산, 상단 로고 영역은 흰색 유지 */
   background: radial-gradient(ellipse 150vw 120vh at -8vw 110vh,
     rgba(255, 133, 182, .72) 0%,
     rgba(255, 211, 227, .62) 24%,
@@ -325,7 +324,7 @@ a.archive-item:hover { color: #dc467c; }
 /* ── 모바일 ── */
 @media (max-width: 700px) {
   :root { --space: 18px; --gap: 12px; }
-  body::before {
+  .bg-layer {
     background: radial-gradient(ellipse 200vw 100vh at -20vw 108vh,
       rgba(255, 133, 182, .70) 0%,
       rgba(255, 211, 227, .58) 24%,
