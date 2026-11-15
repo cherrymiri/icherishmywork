@@ -47,11 +47,8 @@ html { background: #FFFDFC; }
   width: 100%;
   height: 100vh;                                           /* 구형 브라우저용 */
   height: calc(100lvh + env(safe-area-inset-bottom, 0px));
-  /* iOS Safari는 vh·lvh를 떠 있는 하단 주소창 위까지만 계산 → 터치 기기에서는 실제 기기 화면 높이(--screen-h, index.html)까지 채움 */
-  height: calc(max(100lvh, var(--screen-h, 0px)) + env(safe-area-inset-bottom, 0px));
   margin-bottom: -100vh;
-  margin-bottom: calc(-100lvh - env(safe-area-inset-bottom, 0px));
-  margin-bottom: calc(-1 * max(100lvh, var(--screen-h, 0px)) - env(safe-area-inset-bottom, 0px));   /* 레이아웃 높이에 영향 없음 */
+  margin-bottom: calc(-100lvh - env(safe-area-inset-bottom, 0px));   /* 레이아웃 높이에 영향 없음 */
   pointer-events: none;
   z-index: 0;
   background: radial-gradient(ellipse 150vw 120vh at -8vw 110vh,
@@ -68,6 +65,7 @@ html { background: #FFFDFC; }
     rgba(255, 211, 227, .20) 60%,
     rgba(255, 211, 227, .07) 74%,
     rgba(255, 211, 227, 0) 86%);
+  background-color: #FFFDFC;   /* 불투명 — 아래 캔버스 띠는 Safari가 레이어를 잘라낸 곳에서만 보임 */
 }
 #root { position: relative; z-index: 1; }
 
@@ -327,13 +325,14 @@ a.archive-item:hover { color: #dc467c; }
 /* ── 모바일 ── */
 @media (max-width: 700px) {
   :root { --space: 18px; --gap: 12px; }
-  /* iOS Safari: 페이지 맨 끝에서 하단 주소창 뒤는 '페이지 바깥'(캔버스)이라 단색 배경이 보였음.
-     캔버스(html)에 그라데이션 맨 아랫줄과 같은 왼→오 색 흐름을 깔고, 본문(body)은 기존 흰 배경 유지 */
+  /* iOS Safari는 화면에 붙어 있는 레이어(fixed·sticky)를 하단 주소창이 가리는 영역에서 잘라냄.
+     일반 콘텐츠·캔버스는 주소창 아래까지 그려지므로, 캔버스(html)에 그라데이션 맨 아랫줄과 같은 색 흐름을 깔고
+     body 는 투명하게 둠. 위의 .bg-layer 는 불투명이라 평소에는 이 띠가 보이지 않고, 잘린 곳(주소창 뒤)에서만 이어져 보임 */
   html {
-    background: #FFFDFC linear-gradient(90deg, #FFC2D9 0%, #FFCEE1 10%, #FFDBE8 20%, #FFE5EE 30%, #FFE7EF 40%,
-      #FFE9F0 50%, #FFEBF2 60%, #FFEEF3 70%, #FFF0F4 80%, #FFF3F6 90%, #FFF5F7 100%);
+    background: #FFFDFC linear-gradient(90deg, #FFC9DD 0%, #FFD3E3 10%, #FFDFEA 20%, #FFE6EE 30%, #FFE8EF 40%,
+      #FFEAF0 50%, #FFECF2 60%, #FFEEF3 70%, #FFF0F5 80%, #FFF3F6 90%, #FFF5F7 100%);
   }
-  body { background: #FFFDFC; }
+  body { background: transparent; }
   .bg-layer {
     background: radial-gradient(ellipse 200vw 100vh at -20vw 108vh,
       rgba(255, 133, 182, .70) 0%,
@@ -349,6 +348,7 @@ a.archive-item:hover { color: #dc467c; }
       rgba(255, 211, 227, .19) 60%,
       rgba(255, 211, 227, .06) 74%,
       rgba(255, 211, 227, 0) 86%);
+    background-color: #FFFDFC;
   }
   .hero-logo-wrap { height: clamp(125px, 31vw, 176px); padding: 26px 12px 18px; }
   .hero-logo-slot { width: 92%; }

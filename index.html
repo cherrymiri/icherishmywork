@@ -13,18 +13,6 @@
   </head>
   <body>
     <div class="bg-layer" aria-hidden="true"></div>
-    <script>
-      /* iOS Safari는 vh·lvh를 떠 있는 하단 주소창 위까지만 계산 → 터치 기기에서는 배경 레이어를 실제 기기 화면 높이까지 채움 */
-      (function () {
-        if (!window.matchMedia || !matchMedia('(pointer: coarse)').matches) return;
-        function set() {
-          var h = Math.max(screen.height || 0, screen.width || 0, window.innerHeight || 0);
-          document.documentElement.style.setProperty('--screen-h', h + 'px');
-        }
-        set();
-        window.addEventListener('orientationchange', set);
-      })();
-    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
