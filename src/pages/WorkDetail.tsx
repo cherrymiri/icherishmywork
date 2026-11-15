@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { findWork } from '../data/works';
 import { FeaturedPlaceholder } from '../components/WorkThumb';
 import Footer from '../components/Footer';
+import LoopVideo from '../components/LoopVideo';
 import { asset } from '../utils';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
@@ -23,15 +24,10 @@ export default function WorkDetail() {
         <article className={`project-layout layout-${work.ratio}`}>
           <figure className={visualClass}>
             {work.video ? (
-              <video
+              <LoopVideo
                 src={asset(work.video.src)}
                 poster={work.video.poster ? asset(work.video.poster) : undefined}
-                controls
-                playsInline
-                preload="metadata"
-                width={1080}
-                height={1080}
-                aria-label={`${work.title} 영상`}
+                label={work.title}
               />
             ) : work.image ? (
               <img src={asset(work.image)} alt={work.imageAlt ?? work.title} decoding="async" fetchpriority="high" />
