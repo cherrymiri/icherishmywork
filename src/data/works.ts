@@ -43,6 +43,25 @@ export interface Work {
   tone?: string; // 이미지가 없을 때 플레이스홀더 색 (tone1~tone10)
 }
 
+/**
+ * 〈When Love Responds〉 HOME 썸네일 선택 (시험 적용)
+ *   'logo'    → 아이보리 로고 타이포그래피 썸네일
+ *   'objects' → 여섯 오브제 썸네일 (이전 버전, 파일 보관 중)
+ * 되돌리려면 아래 한 단어만 'objects'로 바꾸면 됩니다.
+ */
+const WLR_THUMBNAIL: 'logo' | 'objects' = 'logo';
+
+const wlrThumbs = {
+  logo: {
+    thumbnail: 'works/when-love-responds-logo-1920.webp',
+    thumbnailSrcSet: 'works/when-love-responds-logo-1200.webp 1200w, works/when-love-responds-logo-1920.webp 1920w, works/when-love-responds-logo-2560.webp 2560w',
+  },
+  objects: {
+    thumbnail: 'works/when-love-responds-thumb-1920.webp',
+    thumbnailSrcSet: 'works/when-love-responds-thumb-1200.webp 1200w, works/when-love-responds-thumb-1920.webp 1920w, works/when-love-responds-thumb-2560.webp 2560w',
+  },
+};
+
 const placeholderText = ['텍스트를 입력하세요.', '작품 소개와 제작 의도는 나중에 이 자리에 입력하면 됩니다.'];
 
 // 임시 비율 — 실제 이미지가 정해지면 작품마다 바꿔 주세요.
@@ -58,11 +77,11 @@ export const works: Work[] = [
     featured: true,
     ratio: 'wide',
     description: placeholderText,
-    // 포트폴리오 대표 썸네일 — 통합웹의 원본 오브제 렌더 6개를 검정 배경(#111113)에 2행 3열로 배치
-    thumbnail: 'works/when-love-responds-thumb-1920.webp',
-    thumbnailSrcSet: 'works/when-love-responds-thumb-1200.webp 1200w, works/when-love-responds-thumb-1920.webp 1920w, works/when-love-responds-thumb-2560.webp 2560w',
+    // HOME 썸네일 — 위의 WLR_THUMBNAIL 설정에 따라 선택
+    ...wlrThumbs[WLR_THUMBNAIL],
     thumbnailFit: 'contain',
     thumbnailBg: '#111113',
+    // 상세 페이지 대표 이미지 — 여섯 오브제 이미지 (썸네일 설정과 무관)
     image: 'works/when-love-responds-thumb-2560.webp',
     imageAlt: 'When Love Responds — EROS, LUDUS, PHILIA, STORGE, PRAGMA, AGAPE 여섯 가지 사랑의 오브제',
     // link: { url: 'https://when-love-responds.vercel.app', label: '작품 체험하기' },
