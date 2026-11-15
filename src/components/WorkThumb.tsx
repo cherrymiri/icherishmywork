@@ -20,7 +20,7 @@ export default function WorkThumb({ work }: { work: Work }) {
     }).join(', ');
     return (
       <div
-        className={`work-photo${work.thumbnailFit === 'contain' ? ' fit-contain' : ''}`}
+        className={`work-photo${work.thumbnailFit === 'contain' ? ' fit-contain' : ''}${work.thumbnailSize ? ' natural' : ''}`}
         style={work.thumbnailBg ? { background: work.thumbnailBg } : undefined}
       >
         <picture>
@@ -30,6 +30,8 @@ export default function WorkThumb({ work }: { work: Work }) {
             srcSet={srcSet}
             sizes={work.featured ? '(max-width: 700px) 100vw, 92vw' : '(max-width: 700px) 50vw, 46vw'}
             alt=""
+            width={work.thumbnailSize?.[0]}
+            height={work.thumbnailSize?.[1]}
             loading={work.featured ? 'eager' : 'lazy'}
             decoding="async"
             {...(work.featured ? { fetchpriority: 'high' } : {})}

@@ -33,7 +33,9 @@ export interface Work {
   thumbnailSrcSet?: string; // 선택: 'works/a-1200.webp 1200w, works/a-1920.webp 1920w'
   thumbnailMobile?: string; // 선택: 모바일(700px 이하) 전용 썸네일
   thumbnailFit?: 'cover' | 'contain'; // contain = 이미지 전체를 잘리지 않게 표시
-  thumbnailBg?: string; // contain일 때 남는 영역 색 (이미지 배경색과 맞추기)
+  thumbnailBg?: string;
+  thumbnailSize?: [number, number]; // 지정하면 정사각형 대신 원본 비율 그대로 표시 (포스터 등) — [가로, 세로]
+  imageSize?: [number, number]; // 상세 이미지 원본 크기 (로딩 중 자리 확보용) // contain일 때 남는 영역 색 (이미지 배경색과 맞추기)
   image?: string;
   imageAlt?: string;
   ratio: ImageRatio;
@@ -64,15 +66,12 @@ const wlrThumbs = {
 
 const placeholderText = ['텍스트를 입력하세요.', '작품 소개와 제작 의도는 나중에 이 자리에 입력하면 됩니다.'];
 
-// 임시 비율 — 실제 이미지가 정해지면 작품마다 바꿔 주세요.
-const previewRatios: ImageRatio[] = ['wide', 'portrait', 'square', 'portrait', 'square', 'wide'];
-
 /**
  * HOME 작업물 순서 = 이 배열 순서 (총 11개)
  *  1줄: When Love Responds (전체 너비)
  *  2줄: 11월의 사랑 운세 | 사이버 샌드위치 말랑이
  *  3줄: 전시 공간 (3D) | 나만의 공간 (3D)
- *  이후: 플레이스홀더 6개
+ *  4~6줄: 포스터 6개 (원본 비율)
  */
 export const works: Work[] = [
   {
@@ -139,15 +138,91 @@ export const works: Work[] = [
     thumbnail: 'works/pink-room-thumb.webp',
     video: { src: 'works/pink-room.mp4', poster: 'works/pink-room-poster.webp' },
   },
-  ...previewRatios.map<Work>((ratio, i) => ({
-    slug: `work-${String(i + 4).padStart(2, '0')}`,
-    title: '작품명을 입력하세요',
-    category: '분야',
+  // ── 포스터 6개 (원본 세로 비율 그대로, 잘림 없음) ──
+  {
+    slug: 'poster-01',
+    title: '규진배이 디퍼런트걸', // 파일명 — 나중에 실제 제목으로 수정
+    category: 'Poster',
     year: '연도',
-    ratio,
+    ratio: 'portrait',
     description: placeholderText,
-    tone: `tone${i + 3}`,
-  })),
+    thumbnail: 'works/poster-01-thumb.webp',
+    thumbnailSrcSet: 'works/poster-01-thumb-600.webp 600w, works/poster-01-thumb.webp 1000w',
+    thumbnailSize: [1000, 1500],
+    image: 'works/poster-01-full.webp',
+    imageSize: [1600, 2400],
+    imageAlt: '규진배이 디퍼런트걸 포스터',
+  },
+  {
+    slug: 'poster-02',
+    title: '널따라가 지훈', // 파일명 — 나중에 실제 제목으로 수정
+    category: 'Poster',
+    year: '연도',
+    ratio: 'portrait',
+    description: placeholderText,
+    thumbnail: 'works/poster-02-thumb.webp',
+    thumbnailSrcSet: 'works/poster-02-thumb-600.webp 600w, works/poster-02-thumb.webp 1000w',
+    thumbnailSize: [1000, 1250],
+    image: 'works/poster-02-full.webp',
+    imageSize: [1080, 1350],
+    imageAlt: '널따라가 지훈 포스터',
+  },
+  {
+    slug: 'poster-03',
+    title: '지우 이어 규진', // 파일명 — 나중에 실제 제목으로 수정
+    category: 'Poster',
+    year: '연도',
+    ratio: 'portrait',
+    description: placeholderText,
+    thumbnail: 'works/poster-03-thumb.webp',
+    thumbnailSrcSet: 'works/poster-03-thumb-600.webp 600w, works/poster-03-thumb.webp 1000w',
+    thumbnailSize: [1000, 1500],
+    image: 'works/poster-03-full.webp',
+    imageSize: [1600, 2400],
+    imageAlt: '지우 이어 규진 포스터',
+  },
+  {
+    slug: 'poster-04',
+    title: '한지훈', // 파일명 — 나중에 실제 제목으로 수정
+    category: 'Poster',
+    year: '연도',
+    ratio: 'portrait',
+    description: placeholderText,
+    thumbnail: 'works/poster-04-thumb.webp',
+    thumbnailSrcSet: 'works/poster-04-thumb-600.webp 600w, works/poster-04-thumb.webp 1000w',
+    thumbnailSize: [1000, 1500],
+    image: 'works/poster-04-full.webp',
+    imageSize: [1600, 2400],
+    imageAlt: '한지훈 포스터',
+  },
+  {
+    slug: 'poster-05',
+    title: '규진 패스워드', // 파일명 — 나중에 실제 제목으로 수정
+    category: 'Poster',
+    year: '연도',
+    ratio: 'portrait',
+    description: placeholderText,
+    thumbnail: 'works/poster-05-thumb.webp',
+    thumbnailSrcSet: 'works/poster-05-thumb-600.webp 600w, works/poster-05-thumb.webp 1000w',
+    thumbnailSize: [1000, 1500],
+    image: 'works/poster-05-full.webp',
+    imageSize: [1600, 2400],
+    imageAlt: '규진 패스워드 포스터',
+  },
+  {
+    slug: 'poster-06',
+    title: '규진 붐 별', // 파일명 — 나중에 실제 제목으로 수정
+    category: 'Poster',
+    year: '연도',
+    ratio: 'portrait',
+    description: placeholderText,
+    thumbnail: 'works/poster-06-thumb.webp',
+    thumbnailSrcSet: 'works/poster-06-thumb-600.webp 600w, works/poster-06-thumb.webp 1000w',
+    thumbnailSize: [1000, 1250],
+    image: 'works/poster-06-full.webp',
+    imageSize: [1080, 1350],
+    imageAlt: '규진 붐 별 포스터',
+  },
 ];
 
 /** 예전 주소 → 새 주소 (바뀐 주소로 자동 이동) */

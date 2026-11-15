@@ -30,7 +30,7 @@ export default function WorkDetail() {
                 label={work.title}
               />
             ) : work.image ? (
-              <img src={asset(work.image)} alt={work.imageAlt ?? work.title} decoding="async" fetchpriority="high" />
+              <img src={asset(work.image)} alt={work.imageAlt ?? work.title} width={work.imageSize?.[0]} height={work.imageSize?.[1]} decoding="async" fetchpriority="high" />
             ) : work.featured ? (
               <FeaturedPlaceholder withTitle={false} />
             ) : (

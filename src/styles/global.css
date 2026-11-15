@@ -150,6 +150,9 @@ body::before {
 .works-grid { width: 75%; margin-left: auto; margin-right: auto; }
 .work-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .work-photo.fit-contain img { object-fit: contain; }
+/* 원본 비율 썸네일 (포스터): 잘림 없이 width 100% / height auto */
+.work-photo.natural { aspect-ratio: auto; }
+.work-photo.natural img { position: static; height: auto; object-fit: initial; }
 .work-info {
   position: absolute; left: 0; right: 0; top: 100%;
   padding-top: 14px; opacity: 0; transform: translateY(7px);
