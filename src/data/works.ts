@@ -109,9 +109,9 @@ works[1] = {
   thumbnailBg: '#040404',
   video: { src: 'works/exhibition-space.mp4', poster: 'works/exhibition-space-poster.webp' },
 };
-// 오른쪽: 핑크 3D 공간 — 썸네일은 영상 181번째 프레임 → 영상 '전시공간블렌더영상0001-0250.mp4'
+// 오른쪽: 나만의 공간 (My Own Space) — 썸네일은 영상 181번째 프레임 → 영상 '전시공간블렌더영상0001-0250.mp4'
 works[2] = {
-  slug: 'pink-room',
+  slug: 'my-own-space',
   title: '작품명을 입력하세요',
   category: '3D',
   year: '연도',
@@ -120,5 +120,8 @@ works[2] = {
   thumbnail: 'works/pink-room-thumb.webp',
   video: { src: 'works/pink-room.mp4', poster: 'works/pink-room-poster.webp' },
 };
+
+/** 예전 주소 → 새 주소 (바뀐 주소로 자동 이동) */
+export const slugAliases: Record<string, string> = { 'pink-room': 'my-own-space' };
 
 export const findWork = (slug: string | undefined) => works.find((w) => w.slug === slug);

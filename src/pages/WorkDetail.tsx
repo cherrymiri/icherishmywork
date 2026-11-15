@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { findWork } from '../data/works';
+import { findWork, slugAliases } from '../data/works';
 import { FeaturedPlaceholder } from '../components/WorkThumb';
 import Footer from '../components/Footer';
 import LoopVideo from '../components/LoopVideo';
@@ -12,7 +12,7 @@ export default function WorkDetail() {
   const { slug } = useParams();
   const work = findWork(slug);
   useDocumentTitle(work?.title === '작품명을 입력하세요' ? 'WORKS' : work?.title);
-  if (!work) return <Navigate to="/" replace />;
+  if (!work) return <Navigate to={slug && slugAliases[slug] ? `/works/${slugAliases[slug]}` : '/'} replace />;
 
   const visualClass = work.image || work.video
     ? 'project-visual has-image'
