@@ -47,26 +47,21 @@ html { background: #FFFDFC; }
   width: 100%;
   height: 100vh;                                           /* 구형 브라우저용 */
   height: calc(100lvh + env(safe-area-inset-bottom, 0px));
+  /* iOS Safari는 vh·lvh를 떠 있는 하단 주소창 위까지만 계산 → 터치 기기에서는 실제 기기 화면 높이(--screen-h, index.html)까지 채움 */
+  height: calc(max(100lvh, var(--screen-h, 0px)) + env(safe-area-inset-bottom, 0px));
   margin-bottom: -100vh;
-  margin-bottom: calc(-100lvh - env(safe-area-inset-bottom, 0px));   /* 레이아웃 높이에 영향 없음 */
+  margin-bottom: calc(-100lvh - env(safe-area-inset-bottom, 0px));
+  margin-bottom: calc(-1 * max(100lvh, var(--screen-h, 0px)) - env(safe-area-inset-bottom, 0px));   /* 레이아웃 높이에 영향 없음 */
   pointer-events: none;
-  /* 그라데이션은 background 대신 border-image 로 그리고, 아래로 60vh 더 그림(outset).
-     iOS Safari는 vh·lvh를 떠 있는 하단 주소창 위까지만 계산해서 레이어가 주소창 윗선에서 끝났음.
-     outset 은 그리기만 넓히고 레이아웃·스크롤 길이에는 영향이 없음 → 주소창 아래까지 핑크가 이어짐 */
-  border: 0 solid transparent;
-  border-image-slice: 0 fill;
-  border-image-width: 0;
-  border-image-outset: 0 0 60vh 0;
-  border-image-repeat: stretch;
   z-index: 0;
-  border-image-source: radial-gradient(ellipse 150vw 120vh at -8vw 110vh,
+  background: radial-gradient(ellipse 150vw 120vh at -8vw 110vh,
     rgba(255, 133, 182, .72) 0%,
     rgba(255, 211, 227, .62) 24%,
     rgba(255, 211, 227, .42) 42%,
     rgba(255, 211, 227, .20) 60%,
     rgba(255, 211, 227, .07) 74%,
     rgba(255, 211, 227, 0) 86%);
-  border-image-source: radial-gradient(ellipse 150vw 120svh at -8vw 110svh,
+  background: radial-gradient(ellipse 150vw 120svh at -8vw 110svh,
     rgba(255, 133, 182, .72) 0%,
     rgba(255, 211, 227, .62) 24%,
     rgba(255, 211, 227, .42) 42%,
@@ -333,14 +328,14 @@ a.archive-item:hover { color: #dc467c; }
 @media (max-width: 700px) {
   :root { --space: 18px; --gap: 12px; }
   .bg-layer {
-    border-image-source: radial-gradient(ellipse 200vw 100vh at -20vw 108vh,
+    background: radial-gradient(ellipse 200vw 100vh at -20vw 108vh,
       rgba(255, 133, 182, .70) 0%,
       rgba(255, 211, 227, .58) 24%,
       rgba(255, 211, 227, .40) 42%,
       rgba(255, 211, 227, .19) 60%,
       rgba(255, 211, 227, .06) 74%,
       rgba(255, 211, 227, 0) 86%);
-    border-image-source: radial-gradient(ellipse 200vw 100svh at -20vw 108svh,
+    background: radial-gradient(ellipse 200vw 100svh at -20vw 108svh,
       rgba(255, 133, 182, .70) 0%,
       rgba(255, 211, 227, .58) 24%,
       rgba(255, 211, 227, .40) 42%,
