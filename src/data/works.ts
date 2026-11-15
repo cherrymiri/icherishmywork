@@ -65,8 +65,15 @@ const wlrThumbs = {
 const placeholderText = ['텍스트를 입력하세요.', '작품 소개와 제작 의도는 나중에 이 자리에 입력하면 됩니다.'];
 
 // 임시 비율 — 실제 이미지가 정해지면 작품마다 바꿔 주세요.
-const previewRatios: ImageRatio[] = ['portrait', 'square', 'wide', 'portrait', 'square', 'portrait', 'square', 'wide', 'square', 'portrait'];
+const previewRatios: ImageRatio[] = ['wide', 'portrait', 'square', 'portrait', 'square', 'wide'];
 
+/**
+ * HOME 작업물 순서 = 이 배열 순서 (총 11개)
+ *  1줄: When Love Responds (전체 너비)
+ *  2줄: 11월의 사랑 운세 | 사이버 샌드위치 말랑이
+ *  3줄: 전시 공간 (3D) | 나만의 공간 (3D)
+ *  이후: 플레이스홀더 6개
+ */
 export const works: Work[] = [
   {
     slug: 'when-love-responds',
@@ -85,41 +92,63 @@ export const works: Work[] = [
     imageAlt: 'When Love Responds — EROS, LUDUS, PHILIA, STORGE, PRAGMA, AGAPE 여섯 가지 사랑의 오브제',
     // link: { url: 'https://when-love-responds.vercel.app', label: '작품 체험하기' },
   },
+  {
+    slug: 'november-love-fortune',
+    title: '11월의 사랑 운세',
+    category: '졸업전시 홍보 웹초대장',
+    year: '연도',
+    ratio: 'square',
+    description: placeholderText,
+    thumbnail: 'works/november-love-fortune.webp', // 실제 사이트 1080×1080 화면 캡처
+    image: 'works/november-love-fortune.webp',
+    imageAlt: '11월의 사랑 운세 웹초대장 메인 화면',
+    link: { url: 'https://november-love-fortune.vercel.app', label: 'VISIT WEBSITE' },
+  },
+  {
+    slug: 'cyber-sandwich-squishy',
+    title: '사이버 샌드위치 말랑이',
+    category: 'Web Interaction',
+    year: '연도',
+    ratio: 'square',
+    description: placeholderText,
+    thumbnail: 'works/cyber-sandwich-squishy.webp', // 실제 사이트 1080×1080 화면 캡처
+    image: 'works/cyber-sandwich-squishy.webp',
+    imageAlt: '사이버 샌드위치 말랑이 인터랙션 화면',
+    link: { url: 'https://cyber-sandwich-squishy.vercel.app', label: 'VISIT WEBSITE' },
+  },
+  // 전시 공간 — 썸네일 '기말최종이미지.png' → 영상 '전시공간 기말프로젝트 영상 최종.mp4'
+  {
+    slug: 'exhibition-space',
+    title: '작품명을 입력하세요',
+    category: '3D',
+    year: '연도',
+    ratio: 'square',
+    description: placeholderText,
+    thumbnail: 'works/exhibition-space-thumb.webp',
+    thumbnailBg: '#040404',
+    video: { src: 'works/exhibition-space.mp4', poster: 'works/exhibition-space-poster.webp' },
+  },
+  // 나만의 공간 (My Own Space) — 썸네일은 영상 181번째 프레임 → 영상 '전시공간블렌더영상0001-0250.mp4'
+  {
+    slug: 'my-own-space',
+    title: '작품명을 입력하세요',
+    category: '3D',
+    year: '연도',
+    ratio: 'square',
+    description: placeholderText,
+    thumbnail: 'works/pink-room-thumb.webp',
+    video: { src: 'works/pink-room.mp4', poster: 'works/pink-room-poster.webp' },
+  },
   ...previewRatios.map<Work>((ratio, i) => ({
-    slug: `work-${String(i + 2).padStart(2, '0')}`,
+    slug: `work-${String(i + 4).padStart(2, '0')}`,
     title: '작품명을 입력하세요',
     category: '분야',
     year: '연도',
     ratio,
     description: placeholderText,
-    tone: `tone${i + 1}`,
+    tone: `tone${i + 3}`,
   })),
 ];
-
-// ── 실제 작업물 (그리드 첫 줄 왼쪽·오른쪽) ──
-// 왼쪽: 전시 공간 — 썸네일 '기말최종이미지.png' → 영상 '전시공간 기말프로젝트 영상 최종.mp4'
-works[1] = {
-  slug: 'exhibition-space',
-  title: '작품명을 입력하세요',
-  category: '3D',
-  year: '연도',
-  ratio: 'square',
-  description: placeholderText,
-  thumbnail: 'works/exhibition-space-thumb.webp',
-  thumbnailBg: '#040404',
-  video: { src: 'works/exhibition-space.mp4', poster: 'works/exhibition-space-poster.webp' },
-};
-// 오른쪽: 나만의 공간 (My Own Space) — 썸네일은 영상 181번째 프레임 → 영상 '전시공간블렌더영상0001-0250.mp4'
-works[2] = {
-  slug: 'my-own-space',
-  title: '작품명을 입력하세요',
-  category: '3D',
-  year: '연도',
-  ratio: 'square',
-  description: placeholderText,
-  thumbnail: 'works/pink-room-thumb.webp',
-  video: { src: 'works/pink-room.mp4', poster: 'works/pink-room-poster.webp' },
-};
 
 /** 예전 주소 → 새 주소 (바뀐 주소로 자동 이동) */
 export const slugAliases: Record<string, string> = { 'pink-room': 'my-own-space' };
