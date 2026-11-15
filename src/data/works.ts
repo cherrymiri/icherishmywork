@@ -58,14 +58,13 @@ export const works: Work[] = [
     featured: true,
     ratio: 'wide',
     description: placeholderText,
-    // 통합웹 메인 화면 캡처 (1920×1080) — 배경색 #111113
-    thumbnail: 'works/when-love-responds-1920.webp',
-    thumbnailSrcSet: 'works/when-love-responds-1200.webp 1200w, works/when-love-responds-1920.webp 1920w',
-    thumbnailMobile: 'works/when-love-responds-mobile.webp',
+    // 포트폴리오 대표 썸네일 — 통합웹의 원본 오브제 렌더 6개를 검정 배경(#111113)에 2행 3열로 배치
+    thumbnail: 'works/when-love-responds-thumb-1920.webp',
+    thumbnailSrcSet: 'works/when-love-responds-thumb-1200.webp 1200w, works/when-love-responds-thumb-1920.webp 1920w, works/when-love-responds-thumb-2560.webp 2560w',
     thumbnailFit: 'contain',
     thumbnailBg: '#111113',
-    image: 'works/when-love-responds-1920.webp',
-    imageAlt: 'When Love Responds 통합웹 메인 화면 — EROS, LUDUS, PHILIA, STORGE, PRAGMA, AGAPE 여섯 가지 사랑의 오브제',
+    image: 'works/when-love-responds-thumb-2560.webp',
+    imageAlt: 'When Love Responds — EROS, LUDUS, PHILIA, STORGE, PRAGMA, AGAPE 여섯 가지 사랑의 오브제',
     // link: { url: 'https://when-love-responds.vercel.app', label: '작품 체험하기' },
   },
   ...previewRatios.map<Work>((ratio, i) => ({
