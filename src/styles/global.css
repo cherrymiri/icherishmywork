@@ -349,6 +349,10 @@ a.archive-item:hover { color: #dc467c; }
       rgba(255, 211, 227, .06) 74%,
       rgba(255, 211, 227, 0) 86%);
     background-color: #FFFDFC;
+    /* 화면 아래쪽에서 레이어를 서서히 투명하게 → 아래 캔버스의 같은 색 띠로 자연스럽게 넘어감.
+       Safari가 주소창 영역에서 레이어를 잘라내도, 그 위치는 이미 투명 구간이라 경계가 생기지 않음 */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 60svh, transparent 95svh);
+    mask-image: linear-gradient(to bottom, #000 0, #000 60svh, transparent 95svh);
   }
   .hero-logo-wrap { height: clamp(125px, 31vw, 176px); padding: 26px 12px 18px; }
   .hero-logo-slot { width: 92%; }
