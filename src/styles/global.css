@@ -327,6 +327,13 @@ a.archive-item:hover { color: #dc467c; }
 /* ── 모바일 ── */
 @media (max-width: 700px) {
   :root { --space: 18px; --gap: 12px; }
+  /* iOS Safari: 페이지 맨 끝에서 하단 주소창 뒤는 '페이지 바깥'(캔버스)이라 단색 배경이 보였음.
+     캔버스(html)에 그라데이션 맨 아랫줄과 같은 왼→오 색 흐름을 깔고, 본문(body)은 기존 흰 배경 유지 */
+  html {
+    background: #FFFDFC linear-gradient(90deg, #FFC2D9 0%, #FFCEE1 10%, #FFDBE8 20%, #FFE5EE 30%, #FFE7EF 40%,
+      #FFE9F0 50%, #FFEBF2 60%, #FFEEF3 70%, #FFF0F4 80%, #FFF3F6 90%, #FFF5F7 100%);
+  }
+  body { background: #FFFDFC; }
   .bg-layer {
     background: radial-gradient(ellipse 200vw 100vh at -20vw 108vh,
       rgba(255, 133, 182, .70) 0%,
