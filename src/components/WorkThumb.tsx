@@ -14,15 +14,27 @@ export function FeaturedPlaceholder({ withTitle = true }: { withTitle?: boolean 
 
 export default function WorkThumb({ work }: { work: Work }) {
   if (work.thumbnail) {
+    const srcSet = work.thumbnailSrcSet?.split(',').map((s) => {
+      const [path, w] = s.trim().split(/\s+/);
+      return `${asset(path)} ${w}`;
+    }).join(', ');
     return (
-      <div className="work-photo">
-        <img
-          src={asset(work.thumbnail)}
-          alt=""
-          loading={work.featured ? 'eager' : 'lazy'}
-          decoding="async"
-          {...(work.featured ? { fetchpriority: 'high' } : {})}
-        />
+      <div
+        className={`work-photo${work.thumbnailFit === 'contain' ? ' fit-contain' : ''}`}
+        style={work.thumbnailBg ? { background: work.thumbnailBg } : undefined}
+      >
+        <picture>
+          {work.thumbnailMobile && <source media="(max-width: 700px)" srcSet={asset(work.thumbnailMobile)} />}
+          <img
+            src={asset(work.thumbnail)}
+            srcSet={srcSet}
+            sizes={work.featured ? '(max-width: 700px) 100vw, 92vw' : '(max-width: 700px) 50vw, 46vw'}
+            alt=""
+            loading={work.featured ? 'eager' : 'lazy'}
+            decoding="async"
+            {...(work.featured ? { fetchpriority: 'high' } : {})}
+          />
+        </picture>
       </div>
     );
   }

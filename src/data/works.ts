@@ -25,10 +25,15 @@ export interface WorkImage {
 export interface Work {
   slug: string; // 주소에 쓰이는 이름 (영문 소문자, 하이픈)
   title: string;
+  subtitle?: string; // 한글명 등 보조 제목 (상세 페이지에 표시)
   category: string;
   year: string;
   featured?: boolean;
   thumbnail?: string;
+  thumbnailSrcSet?: string; // 선택: 'works/a-1200.webp 1200w, works/a-1920.webp 1920w'
+  thumbnailMobile?: string; // 선택: 모바일(700px 이하) 전용 썸네일
+  thumbnailFit?: 'cover' | 'contain'; // contain = 이미지 전체를 잘리지 않게 표시
+  thumbnailBg?: string; // contain일 때 남는 영역 색 (이미지 배경색과 맞추기)
   image?: string;
   imageAlt?: string;
   ratio: ImageRatio;
@@ -47,15 +52,21 @@ export const works: Work[] = [
   {
     slug: 'when-love-responds',
     title: 'When Love Responds',
+    subtitle: '사랑의 응답',
     category: 'Interactive Media Art',
     year: '2026',
     featured: true,
     ratio: 'wide',
     description: placeholderText,
-    // 통합웹 메인 화면 스크린샷이 준비되면:
-    // thumbnail: 'works/when-love-responds-thumb.webp',
-    // image: 'works/when-love-responds.webp',
-    // link: { url: 'https://...', label: '작품 체험하기' },
+    // 통합웹 메인 화면 캡처 (1920×1080) — 배경색 #111113
+    thumbnail: 'works/when-love-responds-1920.webp',
+    thumbnailSrcSet: 'works/when-love-responds-1200.webp 1200w, works/when-love-responds-1920.webp 1920w',
+    thumbnailMobile: 'works/when-love-responds-mobile.webp',
+    thumbnailFit: 'contain',
+    thumbnailBg: '#111113',
+    image: 'works/when-love-responds-1920.webp',
+    imageAlt: 'When Love Responds 통합웹 메인 화면 — EROS, LUDUS, PHILIA, STORGE, PRAGMA, AGAPE 여섯 가지 사랑의 오브제',
+    // link: { url: 'https://when-love-responds.vercel.app', label: '작품 체험하기' },
   },
   ...previewRatios.map<Work>((ratio, i) => ({
     slug: `work-${String(i + 2).padStart(2, '0')}`,

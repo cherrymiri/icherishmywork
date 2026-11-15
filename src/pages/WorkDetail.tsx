@@ -36,6 +36,7 @@ export default function WorkDetail() {
           <div className="project-description">
             <div className="project-heading">
               <h1>{work.title}</h1>
+              {work.subtitle && <span className="project-subtitle">{work.subtitle}</span>}
               <span className="project-meta">{work.category} · {work.year}</span>
             </div>
             <div className="project-summary">
