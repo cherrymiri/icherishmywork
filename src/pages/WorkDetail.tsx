@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import LoopVideo from '../components/LoopVideo';
 import WlrDetail from './WlrDetail';
 import NovDetail from './NovDetail';
+import CybDetail from './CybDetail';
 import { asset } from '../utils';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
@@ -13,10 +14,11 @@ const RATIO_LABEL = { wide: '가로형', portrait: '세로형', square: '정사�
 export default function WorkDetail() {
   const { slug } = useParams();
   const work = findWork(slug);
-  const custom = work?.slug === 'when-love-responds' || work?.slug === 'november-love-fortune';
+  const custom = work?.slug === 'when-love-responds' || work?.slug === 'november-love-fortune' || work?.slug === 'cyber-sandwich-squishy';
   useDocumentTitle(custom ? undefined : (work?.title === '작품명을 입력하세요' ? 'WORKS' : work?.title), custom);
   if (work?.slug === 'when-love-responds') return <WlrDetail />;
   if (work?.slug === 'november-love-fortune') return <NovDetail />;
+  if (work?.slug === 'cyber-sandwich-squishy') return <CybDetail />;
   if (!work) return <Navigate to={slug && slugAliases[slug] ? `/works/${slugAliases[slug]}` : '/'} replace />;
 
   const visualClass = work.image || work.video

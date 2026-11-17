@@ -358,6 +358,7 @@ html { background: #FFFDFC; }
 /* ── 당신의 11월 상세 (When Love Responds 상세와 같은 체계) ── */
 .nov-hero picture, .nov-hero img { display: block; width: 100%; height: auto; }
 .wlr-intro p + p { margin-top: 1.1em; }
+.keep-breaks { white-space: pre-line; }
 .nov-steps { margin-top: clamp(64px, 8vw, 110px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); align-items: start; }
 .nov-steps figure { margin: 0; }
 .nov-steps img { display: block; width: 100%; height: auto; }

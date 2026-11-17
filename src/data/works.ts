@@ -107,7 +107,7 @@ export const works: Work[] = [
     slug: 'cyber-sandwich-squishy',
     title: '사이버 샌드위치 말랑이',
     category: 'Web Interaction',
-    year: '연도',
+    year: '2026',
     ratio: 'square',
     description: placeholderText,
     thumbnail: 'works/cyber-sandwich-squishy.webp', // 실제 사이트 1080×1080 화면 캡처
