@@ -201,17 +201,17 @@ export const works: Work[] = [
   },
   {
     slug: 'poster-05',
-    title: '규진 패스워드', // 파일명 — 나중에 실제 제목으로 수정
-    category: 'Poster',
-    year: '연도',
+    title: "PAXXWORD - NMIXX",
+    category: "Poster Design",
+    year: '', // 연도 미확정
     ratio: 'portrait',
-    description: placeholderText,
+    description: ["NMIXX의 〈PAXXWORD〉를 듣고 노래의 분위기를 시각적으로 표현한 개인 포스터 작업이다.", "인터넷에 접속하는 듯한 레트로 전자음에서 영감을 받아, 과거의 인터넷 화면을 연상시키는 분위기를 포스터에 담아내고자 했다.", "레트로한 인터넷 감성을 살리면서도 전체적인 구성에서는 트렌디함을 놓치고 싶지 않았다. 별 모양의 그래픽 요소를 포인트로 활용하고, 타이포그래피와 도형의 배치에 신경 써 두 가지 분위기가 자연스럽게 어우러지도록 작업했다."],
     thumbnail: 'works/poster-05-thumb.webp',
     thumbnailSrcSet: 'works/poster-05-thumb-600.webp 600w, works/poster-05-thumb.webp 1000w',
     thumbnailSize: [1000, 1500],
     image: 'works/poster-05-full.webp',
     imageSize: [1600, 2400],
-    imageAlt: '규진 패스워드 포스터',
+    imageAlt: "PAXXWORD - NMIXX 포스터",
   },
   {
     slug: 'poster-06',
