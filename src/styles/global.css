@@ -253,7 +253,7 @@ html { background: #FFFDFC; }
 .about-grid { display: grid; grid-template-columns: 12.5% minmax(0, 1fr); column-gap: 3%; align-items: start; }
 .about-label { margin: 6px 0 0; font-size: 22px; font-weight: 700; letter-spacing: .12em; line-height: 1.2; }
 .about-headline { font-size: clamp(32px, 3vw, 42px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--wine); margin: 0 0 40px; }
-.about-text p { text-wrap: pretty; font-size: 17px; line-height: 1.85; color: #3d262d; letter-spacing: -0.01em; margin: 0; word-break: keep-all; }
+.about-text p { text-wrap: pretty; font-size: 16.5px; line-height: 1.85; color: #3d262d; letter-spacing: -0.01em; margin: 0; word-break: keep-all; }
 .about-text p + p { margin-top: 0; }
 .about-text strong { font-weight: 700; color: var(--wine); }
 .about-tools { margin-top: 64px; border-top: 1px solid var(--line); padding-top: 34px; }
@@ -447,7 +447,7 @@ a.archive-item:hover { color: #dc467c; }
   .about-grid { grid-template-columns: 1fr; }
   .about-label { margin: 0 0 18px; font-size: 18px; }
   .about-headline { font-size: 30px; margin-bottom: 28px; }
-  .about-text p { font-size: 16px; line-height: 1.8; }
+  .about-text p { font-size: 15.5px; line-height: 1.8; }
   .about-text .pc-br { display: none; }
   .about-text p + p { margin-top: 0; }
   .about-tools { margin-top: 48px; padding-top: 28px; }
