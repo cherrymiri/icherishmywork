@@ -35,7 +35,8 @@ export interface Work {
   thumbnailFit?: 'cover' | 'contain'; // contain = 이미지 전체를 잘리지 않게 표시
   thumbnailBg?: string;
   thumbnailSize?: [number, number]; // 지정하면 정사각형 대신 원본 비율 그대로 표시 (포스터 등) — [가로, 세로]
-  imageSize?: [number, number]; // 상세 이미지 원본 크기 (로딩 중 자리 확보용) // contain일 때 남는 영역 색 (이미지 배경색과 맞추기)
+  imageSize?: [number, number]; // 상세 이미지 원본 크기 (로딩 중 자리 확보용)
+  imageSrcSet?: string; // 선택: 상세 이미지 해상도별 파일 // contain일 때 남는 영역 색 (이미지 배경색과 맞추기)
   image?: string;
   imageAlt?: string;
   ratio: ImageRatio;
@@ -143,17 +144,18 @@ export const works: Work[] = [
   // ── 포스터 6개 (원본 세로 비율 그대로, 잘림 없음) ──
   {
     slug: 'poster-01',
-    title: '규진배이 디퍼런트걸', // 파일명 — 나중에 실제 제목으로 수정
-    category: 'Poster',
-    year: '연도',
+    title: "Different Girl - NMIXX",
+    category: "Poster Design",
+    year: '', // 연도 미정
     ratio: 'portrait',
-    description: placeholderText,
+    description: ["NMIXX의 〈Different Girl〉을 듣고 느낀 감정을 시각적으로 표현한 개인 포스터 작업이다.", "포스터에 사용된 모든 문구는 노래 가사에서 가져왔으며, 한국어 가사는 영어로 번역해 배치했다. 평범했던 내 일상에 갑자기 나타난 특별한 존재에게 이끌리고, 그 사람의 모든 것을 알아가고 싶어지는 마음을 담아내고자 했다.", "포스터 하단의 'Who can deny her?'는 크고 굵은 타이포그래피로 바로 위 가사보다 강렬하게 표현했으며, 이어지는 'Different Girl'은 다른 서체를 활용해 차이를 두었다. 또한 외계인이든 공룡이든 어떤 모습이어도 나의 bestie가 되어 달라는 가사를 포인트로 배치해 특별한 존재를 향한 애정을 강조했다."],
     thumbnail: 'works/poster-01-thumb.webp',
     thumbnailSrcSet: 'works/poster-01-thumb-600.webp 600w, works/poster-01-thumb.webp 1000w',
     thumbnailSize: [1000, 1500],
-    image: 'works/poster-01-full.webp',
-    imageSize: [1600, 2400],
-    imageAlt: '규진배이 디퍼런트걸 포스터',
+    image: 'works/poster-01-full-2000.webp', // 원본 해상도(2000×3000)
+    imageSrcSet: 'works/poster-01-thumb.webp 1000w, works/poster-01-full-2000.webp 2000w',
+    imageSize: [2000, 3000],
+    imageAlt: "Different Girl - NMIXX 포스터",
   },
   {
     slug: 'poster-02',

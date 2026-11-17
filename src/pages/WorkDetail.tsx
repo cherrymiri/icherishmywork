@@ -40,7 +40,7 @@ export default function WorkDetail() {
               {work.video.caption && <figcaption className="wlr-hero-caption">{work.video.caption}</figcaption>}
               </>
             ) : work.image ? (
-              <img src={asset(work.image)} alt={work.imageAlt ?? work.title} width={work.imageSize?.[0]} height={work.imageSize?.[1]} decoding="async" fetchpriority="high" />
+              <img src={asset(work.image)} srcSet={work.imageSrcSet?.split(',').map((x) => { const [pth, w] = x.trim().split(/\s+/); return `${asset(pth)} ${w}`; }).join(', ')} sizes="(max-width: 700px) 92vw, 475px" alt={work.imageAlt ?? work.title} width={work.imageSize?.[0]} height={work.imageSize?.[1]} decoding="async" fetchpriority="high" />
             ) : work.featured ? (
               <FeaturedPlaceholder withTitle={false} />
             ) : (
