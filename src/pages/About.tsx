@@ -12,7 +12,7 @@ export default function About() {
         <div className="about-grid">
           <p className="section-label about-label">ABOUT</p>
           <div className="about-body">
-            <h1 className="about-headline">I cherish my work.</h1>
+            <h1 className="about-headline">I cherish my work</h1>
             <div className="about-text">
               <p>나에게 디자인은 무에서 유를 만들어내는 일이다. 머릿속에만 존재하던 생각을 눈앞의 결과물로 만들어내고 그 안에 나만의 취향과 감각을 담는 것을 좋아한다.</p>
               <p>음악과 일상의 다양한 순간에서 영감을 얻으며 따뜻하고 사랑스러운 것들에 마음이 끌린다. 새로운 트렌드를 받아들이면서도 그 안에서 나만의 색을 잃지 않으려 노력한다.</p>
