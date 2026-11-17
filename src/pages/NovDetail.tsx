@@ -38,7 +38,7 @@ export default function NovDetail() {
 
         <section className="wlr-intro" aria-labelledby="nov-intro-label">
           <h2 className="wlr-label" id="nov-intro-label">작품 소개</h2>
-          {d.intro.map((p, i) => <p key={i} className="keep-breaks">{p}</p>)}
+          {d.intro.map((p, i) => <p key={i}>{p}</p>)}
         </section>
 
         <div className="nov-steps">
