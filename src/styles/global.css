@@ -447,7 +447,7 @@ a.archive-item:hover { color: #dc467c; }
   .about-grid { grid-template-columns: minmax(0, 1fr); }
   .about-label { margin: 0 0 14px; font-size: 15px; }
   .about-headline { font-size: 25px; margin-bottom: 22px; }
-  .about-text p { font-size: 14px; line-height: 1.8; letter-spacing: -0.02em; }
+  .about-text p { font-size: 14px; line-height: 1.65; letter-spacing: -0.02em; }
   .about-text p:nth-child(3), .about-text p:nth-child(4) { margin-top: 1.4em; }
   .about-text .pc-br { display: none; }
   .about-text { max-width: 88%; }
