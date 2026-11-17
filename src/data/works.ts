@@ -146,7 +146,7 @@ export const works: Work[] = [
     slug: 'poster-01',
     title: "Different Girl - NMIXX",
     category: "Poster Design",
-    year: '', // 연도 미정
+    year: '2026',
     ratio: 'portrait',
     description: ["NMIXX의 〈Different Girl〉을 듣고 느낀 감정을 시각적으로 표현한 개인 포스터 작업이다.", "포스터에 사용된 모든 문구는 노래 가사에서 가져왔으며, 한국어 가사는 영어로 번역해 배치했다. 평범했던 내 일상에 갑자기 나타난 특별한 존재에게 이끌리고, 그 사람의 모든 것을 알아가고 싶어지는 마음을 담아내고자 했다.", "포스터 하단의 'Who can deny her?'는 크고 굵은 타이포그래피로 바로 위 가사보다 강렬하게 표현했으며, 이어지는 'Different Girl'은 다른 서체를 활용해 차이를 두었다. 또한 외계인이든 공룡이든 어떤 모습이어도 나의 bestie가 되어 달라는 가사를 포인트로 배치해 특별한 존재를 향한 애정을 강조했다."],
     thumbnail: 'works/poster-01-thumb.webp',
