@@ -159,17 +159,17 @@ export const works: Work[] = [
   },
   {
     slug: 'poster-02',
-    title: '널따라가 지훈', // 파일명 — 나중에 실제 제목으로 수정
-    category: 'Poster',
-    year: '연도',
+    title: "널 따라가 (You, You) - TWS",
+    category: "Poster Design",
+    year: "2026",
     ratio: 'portrait',
-    description: placeholderText,
+    description: ["투어스의 〈널 따라가 (You, You)〉를 듣고 느낀 청량한 분위기를 시각적으로 표현한 개인 포스터 작업이다.", "포스터에 사용된 모든 문구는 노래 가사에서 가져왔으며, 한국어 가사는 영어로 번역해 배치했다. 노래에서 느껴지는 청량감과 투어스라는 그룹이 가진 밝고 생동감 있는 분위기를 바다 위 반짝이는 윤슬로 표현했다. 메인 타이포그래피는 자간을 좁히고 글자를 세로로 길게 늘려 트렌디한 느낌을, 서브 타이포그래피는 포토샵의 혼합 모드를 활용하여 바닷물같이 투명하고 반짝이는 느낌을 줬다."],
     thumbnail: 'works/poster-02-thumb.webp',
     thumbnailSrcSet: 'works/poster-02-thumb-600.webp 600w, works/poster-02-thumb.webp 1000w',
     thumbnailSize: [1000, 1500], // 썸네일만 2:3 (위아래 단색 확장) — 상세는 원본 4:5
     image: 'works/poster-02-full.webp',
     imageSize: [1080, 1350],
-    imageAlt: '널따라가 지훈 포스터',
+    imageAlt: "널 따라가 (You, You) - TWS 포스터",
   },
   {
     slug: 'poster-03',
