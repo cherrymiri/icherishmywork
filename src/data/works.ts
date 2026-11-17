@@ -93,9 +93,9 @@ export const works: Work[] = [
   },
   {
     slug: 'november-love-fortune',
-    title: '11월의 사랑 운세',
-    category: '졸업전시 홍보 웹초대장',
-    year: '연도',
+    title: '당신의 11월, 어떤 사랑이 응답할까요?',
+    category: 'Interactive Web Invitation',
+    year: '2026',
     ratio: 'square',
     description: placeholderText,
     thumbnail: 'works/november-love-fortune.webp', // 실제 사이트 1080×1080 화면 캡처

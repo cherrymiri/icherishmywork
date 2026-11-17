@@ -3,7 +3,7 @@
  */
 export const novDetail = {
   "title": "당신의 11월, 어떤 사랑이 응답할까요?",
-  "meta": "Interactive Web Design · 2026",
+  "meta": "Interactive Web Invitation · 2026",
   "url": "https://november-love-fortune.vercel.app/",
   "heroCaption": "이미지를 클릭하면 체험웹으로 연결됩니다",
   "intro": [
