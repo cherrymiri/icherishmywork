@@ -308,6 +308,9 @@ html { background: #FFFDFC; }
   border-bottom: 1px solid var(--pink); padding-bottom: 4px;
 }
 .project-link:hover { color: #dc467c; }
+.detail-wide { margin: clamp(56px, 7vw, 96px) 0 0; }
+.detail-wide img { display: block; width: 100%; height: auto; }
+.project-visual .wlr-hero-caption { margin-top: 10px; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); margin-top: 45px; }
 .detail-grid img { display: block; width: 100%; height: auto; }
 .back-link { display: inline-flex; align-items: center; gap: 9px; color: var(--wine); font-size: 12px; margin-top: clamp(75px, 12vh, 150px); }

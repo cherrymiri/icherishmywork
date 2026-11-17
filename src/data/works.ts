@@ -40,7 +40,8 @@ export interface Work {
   imageAlt?: string;
   ratio: ImageRatio;
   description: string[]; // 문단 단위
-  video?: { src: string; poster?: string }; // 상세 페이지 대표 영상 (있으면 이미지 대신 표시)
+  video?: { src: string; poster?: string; caption?: string }; // 상세 페이지 대표 영상 (있으면 이미지 대신 표시)
+  wideImage?: { src: string; srcSet?: string; width: number; height: number; alt?: string }; // 영상·글 아래 가로 전체 이미지
   gallery?: WorkImage[];
   link?: { url: string; label?: string };
   tone?: string; // 이미지가 없을 때 플레이스홀더 색 (tone1~tone10)
@@ -125,7 +126,8 @@ export const works: Work[] = [
     description: ["우리는 스스로 기대하는 모습과 실제 행동으로 드러나는 모습 사이에서 종종 차이를 경험한다. 〈시선의 차이 - 보는 나, 보이는 나〉는 이러한 차이를 세 개의 공간으로 풀어낸 체험형 미디어아트 전시 기획이다.", "첫 번째 공간에서 관람객은 타인의 기록을 살펴보고, 자신을 표현하는 단어와 문장을 입력하며 아직 존재하지 않는 '기대된 나'를 상상한다.", "두 번째 공간에서는 아무런 정보가 주어지지 않은 초록색 크로마키 공간에 들어선다. 낯선 공간을 스스로 탐색하며 자연스럽게 드러나는 몸짓은 기대와 예상을 벗어난 가장 솔직한 나의 모습이다.", "마지막 공간에서는 앞서 입력한 문장과 실제 행동이 합성된 영상을 마주한다. 기대했던 모습과 실제 모습이 하나로 합쳐진 '또 다른 나'를 통해, 나라는 존재가 하나의 모습으로 고정되지 않음을 전달하고자 했다."],
     thumbnail: 'works/exhibition-space-thumb.webp',
     thumbnailBg: '#040404',
-    video: { src: 'works/exhibition-space.mp4', poster: 'works/exhibition-space-poster.webp' },
+    video: { src: 'works/exhibition-space.mp4', poster: 'works/exhibition-space-poster.webp', caption: '영상을 클릭하면 재생하거나 일시정지할 수 있습니다.' },
+    wideImage: { src: 'works/exhibition-space-full-1920.webp', srcSet: 'works/exhibition-space-full-1200.webp 1200w, works/exhibition-space-full-1920.webp 1920w', width: 1920, height: 1080, alt: '시선의 차이 — 세 개의 전시 공간' },
   },
   // 나만의 공간 (My Own Space) — 썸네일은 영상 181번째 프레임 → 영상 '전시공간블렌더영상0001-0250.mp4'
   {

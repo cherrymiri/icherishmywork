@@ -31,11 +31,14 @@ export default function WorkDetail() {
         <article className={`project-layout layout-${work.ratio}`}>
           <figure className={visualClass}>
             {work.video ? (
+<>
               <LoopVideo
                 src={asset(work.video.src)}
                 poster={work.video.poster ? asset(work.video.poster) : undefined}
                 label={work.title}
               />
+              {work.video.caption && <figcaption className="wlr-hero-caption">{work.video.caption}</figcaption>}
+              </>
             ) : work.image ? (
               <img src={asset(work.image)} alt={work.imageAlt ?? work.title} width={work.imageSize?.[0]} height={work.imageSize?.[1]} decoding="async" fetchpriority="high" />
             ) : work.featured ? (
@@ -63,6 +66,21 @@ export default function WorkDetail() {
             </div>
           </div>
         </article>
+
+        {work.wideImage && (
+          <figure className="detail-wide">
+            <img
+              src={asset(work.wideImage.src)}
+              srcSet={work.wideImage.srcSet?.split(',').map((x) => { const [pth, w] = x.trim().split(/\s+/); return `${asset(pth)} ${w}`; }).join(', ')}
+              sizes="(max-width: 1200px) 100vw, 1100px"
+              width={work.wideImage.width}
+              height={work.wideImage.height}
+              alt={work.wideImage.alt ?? ''}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        )}
 
         {work.gallery && work.gallery.length > 0 && (
           <div className="detail-grid">
