@@ -25,10 +25,10 @@ export const novDetail = {
   },
   "steps": [
     {
-      "src": "works/nov-step1-780.webp",
+      "src": "works/nov-hero-m-780.webp",
       "width": 780,
       "height": 1328,
-      "alt": "여섯 장의 카드가 중앙으로 모이는 화면"
+      "alt": "카드를 뽑기 직전의 메인 화면"
     },
     {
       "src": "works/nov-step2-780.webp",
