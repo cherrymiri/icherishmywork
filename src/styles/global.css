@@ -450,6 +450,7 @@ a.archive-item:hover { color: #dc467c; }
   .about-text p { font-size: 14px; line-height: 1.8; letter-spacing: -0.02em; }
   .about-text p:nth-child(3), .about-text p:nth-child(4) { margin-top: 1.4em; }
   .about-text .pc-br { display: none; }
+  .about-text { max-width: 88%; }
   .about-text p + p { margin-top: 0; }
   .about-tools { margin-top: 48px; padding-top: 28px; }
   .about-tools h2 { font-size: 12px; }
