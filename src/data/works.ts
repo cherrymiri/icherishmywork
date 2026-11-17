@@ -187,17 +187,17 @@ export const works: Work[] = [
   },
   {
     slug: 'poster-04',
-    title: '한지훈', // 파일명 — 나중에 실제 제목으로 수정
-    category: 'Poster',
-    year: '연도',
+    title: "OVERDRIVE - TWS",
+    category: "Poster Design",
+    year: '2025',
     ratio: 'portrait',
-    description: placeholderText,
+    description: ["투어스의 〈OVERDRIVE〉를 듣고 노래의 분위기를 시각적으로 표현한 개인 포스터 작업이다.", "앨범 커버의 푸른색을 중심으로 포스터의 색감을 구성하고, 노래에서 느껴지는 청량한 분위기를 담아 투어스 특유의 시원하고 밝은 이미지를 표현했다.\n또한 공개된 티저 사진의 천사 컨셉을 반영해 인물 뒤에 날개를 배치하여 티저에서의 분위기를 포스터에도 이어가고자 했다."],
     thumbnail: 'works/poster-04-thumb.webp',
     thumbnailSrcSet: 'works/poster-04-thumb-600.webp 600w, works/poster-04-thumb.webp 1000w',
     thumbnailSize: [1000, 1500],
     image: 'works/poster-04-full.webp',
     imageSize: [1600, 2400],
-    imageAlt: '한지훈 포스터',
+    imageAlt: "OVERDRIVE - TWS 포스터",
   },
   {
     slug: 'poster-05',
