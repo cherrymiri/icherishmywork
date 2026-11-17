@@ -134,7 +134,7 @@ export const works: Work[] = [
     slug: 'my-own-space',
     title: "나만의 공간",
     category: "3D Modeling & Visualization",
-    year: '2026',
+    year: '2025',
     ratio: 'square',
     description: ["나의 취향과 이야기를 하나의 공간에 담아 시각적으로 표현한 3D 프로젝트다.", "손그림으로 공간을 스케치한 뒤 Blender를 활용해 3D로 구현했다. 좋아하는 분홍색을 공간의 주된 색상으로 사용하고, 사랑을 향한 마음은 하트로 표현했다. 좋아하는 꽃과 물은 침대 주변에 배치하고, 내 이름과 발음이 비슷한 체리 모양의 조명을 공간 곳곳에 더했다.\n침대 옆에는 일상에서 빼놓을 수 없는 노트북을 놓았다. 이처럼 나를 나타내는 색과 사물들을 하나씩 채워 넣으며 내가 좋아하는 것들로 이루어진 나만의 공간을 완성했다."],
     thumbnail: 'works/pink-room-thumb.webp',
