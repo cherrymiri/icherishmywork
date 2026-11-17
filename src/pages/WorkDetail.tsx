@@ -4,6 +4,7 @@ import { FeaturedPlaceholder } from '../components/WorkThumb';
 import Footer from '../components/Footer';
 import LoopVideo from '../components/LoopVideo';
 import WlrDetail from './WlrDetail';
+import NovDetail from './NovDetail';
 import { asset } from '../utils';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
@@ -14,6 +15,7 @@ export default function WorkDetail() {
   const work = findWork(slug);
   useDocumentTitle(work?.title === '작품명을 입력하세요' ? 'WORKS' : work?.title);
   if (work?.slug === 'when-love-responds') return <WlrDetail />;
+  if (work?.slug === 'november-love-fortune') return <NovDetail />;
   if (!work) return <Navigate to={slug && slugAliases[slug] ? `/works/${slugAliases[slug]}` : '/'} replace />;
 
   const visualClass = work.image || work.video
