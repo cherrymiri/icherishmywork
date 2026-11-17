@@ -173,17 +173,17 @@ export const works: Work[] = [
   },
   {
     slug: 'poster-03',
-    title: '지우 이어 규진', // 파일명 — 나중에 실제 제목으로 수정
-    category: 'Poster',
-    year: '연도',
+    title: "Blue Valentine - NMIXX",
+    category: "Poster Design",
+    year: '', // 연도 미확정
     ratio: 'portrait',
-    description: placeholderText,
+    description: ["NMIXX의 〈Blue Valentine〉이 담고 있는 애증의 감정을 시각적으로 표현한 개인 포스터 작업이다.", "사랑하기에 미워하면서도 결국 다시 돌아가게 되는 관계를 담은 곡으로, 노래의 분위기와 제목에 등장하는 'Blue'를 반영해 포스터 전체를 푸른빛으로 구성했다.", "특히 가사 중 '우린 마치 broken glass on the ground'에서 영감을 받아 깨진 유리의 흔적과 파편, 유리로 만들어진 듯한 날개를 더했다. 또한 모델의 다른 컷에 포토샵 필터 효과를 적용하고 포스터 곳곳에 배치해 감각적으로 구성했다."],
     thumbnail: 'works/poster-03-thumb.webp',
     thumbnailSrcSet: 'works/poster-03-thumb-600.webp 600w, works/poster-03-thumb.webp 1000w',
     thumbnailSize: [1000, 1500],
     image: 'works/poster-03-full.webp',
     imageSize: [1600, 2400],
-    imageAlt: '지우 이어 규진 포스터',
+    imageAlt: "Blue Valentine - NMIXX 포스터",
   },
   {
     slug: 'poster-04',
