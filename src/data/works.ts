@@ -215,17 +215,17 @@ export const works: Work[] = [
   },
   {
     slug: 'poster-06',
-    title: '규진 붐 별', // 파일명 — 나중에 실제 제목으로 수정
-    category: 'Poster',
-    year: '연도',
+    title: "BOOM - NMIXX",
+    category: "Poster Design",
+    year: '', // 연도 미확정
     ratio: 'portrait',
-    description: placeholderText,
+    description: ["NMIXX의 〈BOOM〉이라는 노래 제목에서 연상되는 이미지를 시각적으로 표현한 개인 포스터 작업이다.", "'BOOM'이라는 단어가 주는 폭발적인 느낌에서 영감을 받아 포스터 전체를 카툰 분위기로 구성했으며, 커다란 메인 타이포그래피 주변으로 선이 뻗어 나가는 효과를 더해 글자가 터져 나오는 듯한 느낌을 강조했다.\n또한 말풍선과 별 모양의 그래픽, 여러 장으로 나누어 배치한 인물 사진을 활용해 만화의 한 장면처럼 생동감 있게 표현했다."],
     thumbnail: 'works/poster-06-thumb.webp',
     thumbnailSrcSet: 'works/poster-06-thumb-600.webp 600w, works/poster-06-thumb.webp 1000w',
     thumbnailSize: [1000, 1500], // 썸네일만 2:3 (위아래 단색 확장) — 상세는 원본 4:5
     image: 'works/poster-06-full.webp',
     imageSize: [1080, 1350],
-    imageAlt: '규진 붐 별 포스터',
+    imageAlt: "BOOM - NMIXX 포스터",
   },
 ];
 
