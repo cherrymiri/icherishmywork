@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import Footer from '../components/Footer';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
-const TOOLS = ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe Premiere Pro', 'Adobe After Effects', 'Blender', 'Claude'];
+const TOOLS = ['Photoshop', 'Illustrator', 'Premiere Pro', 'After Effects', 'Blender', 'Claude'];
 
 export default function About() {
   useDocumentTitle('ABOUT');
