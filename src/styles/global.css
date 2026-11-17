@@ -444,14 +444,15 @@ a.archive-item:hover { color: #dc467c; }
 
   .inner { padding: 100px var(--space) 45px; }
   .about-wide { width: auto; padding: 100px var(--space) 50px; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-label { margin: 0 0 18px; font-size: 18px; }
-  .about-headline { font-size: 30px; margin-bottom: 28px; }
-  .about-text p { font-size: 15.5px; line-height: 1.8; }
+  .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .about-label { margin: 0 0 14px; font-size: 15px; }
+  .about-headline { font-size: 25px; margin-bottom: 22px; }
+  .about-text p { font-size: 14px; line-height: 1.8; letter-spacing: -0.02em; }
   .about-text .pc-br { display: none; }
   .about-text p + p { margin-top: 0; }
   .about-tools { margin-top: 48px; padding-top: 28px; }
-  .about-tools p { white-space: normal; line-height: 1.8; }
+  .about-tools h2 { font-size: 12px; }
+  .about-tools p { font-size: 11px; letter-spacing: -0.01em; white-space: normal; line-height: 1.8; }
   .about-tools .tool { white-space: nowrap; }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .footer { padding-bottom: 35px; }
