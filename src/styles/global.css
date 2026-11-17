@@ -251,10 +251,10 @@ html { background: #FFFDFC; }
 /* ABOUT — 와이드 에디토리얼형 (ABOUT 전용) */
 .about-wide { width: 92%; max-width: 1600px; margin: 0 auto; padding: 130px 0 60px; }
 .about-grid { display: grid; grid-template-columns: 12.5% minmax(0, 1fr); column-gap: 3%; align-items: start; }
-.about-label { margin: 14px 0 0; }
+.about-label { margin: 6px 0 0; font-size: 22px; font-weight: 700; letter-spacing: .12em; line-height: 1.2; }
 .about-headline { font-size: clamp(32px, 3vw, 42px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--wine); margin: 0 0 40px; }
 .about-text p { font-size: 16px; line-height: 1.85; color: #3d262d; letter-spacing: -0.01em; margin: 0; word-break: keep-all; }
-.about-text p + p { margin-top: 22px; }
+.about-text p + p { margin-top: 0; }
 .about-text strong { font-weight: 700; color: var(--wine); }
 .about-tools { margin-top: 64px; border-top: 1px solid var(--line); padding-top: 34px; }
 .about-tools h2 { font-size: 13.5px; font-weight: 600; letter-spacing: .1em; color: var(--wine); margin: 0 0 14px; }
@@ -445,10 +445,10 @@ a.archive-item:hover { color: #dc467c; }
   .inner { padding: 100px var(--space) 45px; }
   .about-wide { width: auto; padding: 100px var(--space) 50px; }
   .about-grid { grid-template-columns: 1fr; }
-  .about-label { margin: 0 0 22px; }
+  .about-label { margin: 0 0 18px; font-size: 18px; }
   .about-headline { font-size: 30px; margin-bottom: 28px; }
   .about-text p { font-size: 15px; line-height: 1.8; }
-  .about-text p + p { margin-top: 20px; }
+  .about-text p + p { margin-top: 0; }
   .about-tools { margin-top: 48px; padding-top: 28px; }
   .about-tools p { white-space: normal; line-height: 1.8; }
   .about-tools .tool { white-space: nowrap; }
