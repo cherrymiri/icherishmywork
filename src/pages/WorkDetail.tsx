@@ -54,7 +54,7 @@ export default function WorkDetail() {
             <div className="project-heading">
               <h1>{work.title}</h1>
               {work.subtitle && <span className="project-subtitle">{work.subtitle}</span>}
-              <span className="project-meta">{work.category} · {work.year}</span>
+              <span className="project-meta">{work.category}{work.year ? ` · ${work.year}` : ''}</span>
             </div>
             <div className="project-summary">
               {work.description.map((p, i) => <p key={i}>{p}</p>)}

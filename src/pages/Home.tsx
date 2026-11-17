@@ -27,7 +27,7 @@ export default function Home() {
                 <WorkThumb work={w} />
                 <div className="work-info">
                   <div className="work-title">{w.title}</div>
-                  <div className="work-meta">{w.category} · {w.year}</div>
+                  <div className="work-meta">{w.category}{w.year ? ` · ${w.year}` : ''}</div>
                 </div>
               </Link>
             </li>
