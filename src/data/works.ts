@@ -118,11 +118,11 @@ export const works: Work[] = [
   // 전시 공간 — 썸네일 '기말최종이미지.png' → 영상 '전시공간 기말프로젝트 영상 최종.mp4'
   {
     slug: 'exhibition-space',
-    title: '작품명을 입력하세요',
-    category: '3D',
-    year: '연도',
+    title: "시선의 차이 — 보는 나, 보이는 나",
+    category: "Interactive Exhibition Planning",
+    year: "2025",
     ratio: 'square',
-    description: placeholderText,
+    description: ["우리는 스스로 기대하는 모습과 실제 행동으로 드러나는 모습 사이에서 종종 차이를 경험한다. 〈시선의 차이 - 보는 나, 보이는 나〉는 이러한 차이를 세 개의 공간으로 풀어낸 체험형 미디어아트 전시 기획이다.", "첫 번째 공간에서 관람객은 타인의 기록을 살펴보고, 자신을 표현하는 단어와 문장을 입력하며 아직 존재하지 않는 '기대된 나'를 상상한다.", "두 번째 공간에서는 아무런 정보가 주어지지 않은 초록색 크로마키 공간에 들어선다. 낯선 공간을 스스로 탐색하며 자연스럽게 드러나는 몸짓은 기대와 예상을 벗어난 가장 솔직한 나의 모습이다.", "마지막 공간에서는 앞서 입력한 문장과 실제 행동이 합성된 영상을 마주한다. 기대했던 모습과 실제 모습이 하나로 합쳐진 '또 다른 나'를 통해, 나라는 존재가 하나의 모습으로 고정되지 않음을 전달하고자 했다."],
     thumbnail: 'works/exhibition-space-thumb.webp',
     thumbnailBg: '#040404',
     video: { src: 'works/exhibition-space.mp4', poster: 'works/exhibition-space-poster.webp' },
