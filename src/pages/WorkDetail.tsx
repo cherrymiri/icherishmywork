@@ -13,7 +13,8 @@ const RATIO_LABEL = { wide: '가로형', portrait: '세로형', square: '정사�
 export default function WorkDetail() {
   const { slug } = useParams();
   const work = findWork(slug);
-  useDocumentTitle(work?.title === '작품명을 입력하세요' ? 'WORKS' : work?.title);
+  const custom = work?.slug === 'when-love-responds' || work?.slug === 'november-love-fortune';
+  useDocumentTitle(custom ? undefined : (work?.title === '작품명을 입력하세요' ? 'WORKS' : work?.title), custom);
   if (work?.slug === 'when-love-responds') return <WlrDetail />;
   if (work?.slug === 'november-love-fortune') return <NovDetail />;
   if (!work) return <Navigate to={slug && slugAliases[slug] ? `/works/${slugAliases[slug]}` : '/'} replace />;
