@@ -451,7 +451,7 @@ a.archive-item:hover { color: #dc467c; }
   .about-text p + p { margin-top: 20px; }
   .about-tools { margin-top: 48px; padding-top: 28px; }
   .about-tools p { white-space: normal; line-height: 1.8; }
-  .about-tools p > span { white-space: nowrap; }
+  .about-tools .tool { white-space: nowrap; }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .footer { padding-bottom: 35px; }
   .section-label { margin-bottom: 24px; }

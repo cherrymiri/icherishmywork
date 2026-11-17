@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Footer from '../components/Footer';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
@@ -21,7 +22,7 @@ export default function About() {
             </div>
             <section className="about-tools">
               <h2>TOOLS</h2>
-              <p>{TOOLS.map((t, i) => <span key={t}>{t}{i < TOOLS.length - 1 && <span className="dot" aria-hidden="true"> · </span>}</span>)}</p>
+              <p>{TOOLS.map((t, i) => <Fragment key={t}><span className="tool">{t}</span>{i < TOOLS.length - 1 && ' · '}</Fragment>)}</p>
             </section>
           </div>
         </div>
