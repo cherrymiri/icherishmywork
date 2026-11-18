@@ -30,7 +30,7 @@ export default function Contact() {
             </a>
           </li>
         </ul>
-        <Footer />
+        <Footer hideContact />
       </div>
     </div>
   );
