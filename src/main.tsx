@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import WorkDetail from './pages/WorkDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import MotionVideo from './pages/MotionVideo';
+import FilmVideo from './pages/FilmVideo';
 import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import './styles/global.css';
 
@@ -19,7 +19,8 @@ const routes = [
       { path: 'works/:slug', element: <WorkDetail /> },
       { path: 'about', element: <About /> },
       { path: 'contact', element: <Contact /> },
-      { path: 'motion-video', element: <MotionVideo /> },
+      { path: 'film-video', element: <FilmVideo /> },
+      { path: 'motion-video', element: <Navigate to="/film-video" replace /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },

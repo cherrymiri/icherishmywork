@@ -33,8 +33,8 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <Link className="archive-link" to="/motion-video">
-          <span>Motion &amp; Video</span>
+        <Link className="archive-link" to="/film-video">
+          <span>FILM &amp; VIDEO</span>
           <span>VIEW ARCHIVE ↗</span>
         </Link>
         <Footer />

@@ -1,4 +1,4 @@
-/** ABOUT · CONTACT · Motion & Video 내용 — 확정되면 여기서 수정하세요. */
+/** ABOUT · CONTACT 내용 — 확정되면 여기서 수정하세요. */
 
 export const about = {
   headline: ['텍스트를', '입력하세요.'], // 줄 단위
@@ -12,14 +12,3 @@ export const contact = {
   email: 'yes_021@naver.com',
   instagram: 'icherishmywork',
 };
-
-export interface Video {
-  title: string;
-  category: string; // 예: Motion Graphic / Longform / Shortform
-  year?: string;
-  url?: string; // 유튜브·비메오 등 링크
-}
-
-/** 영상 작업 목록. 비어 있으면 임시 항목이 표시됩니다. */
-export const videos: Video[] = [];
-export const videoPlaceholderCategories = ['Motion Graphic', 'Longform', 'Shortform'];
