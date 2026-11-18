@@ -236,6 +236,11 @@ html { background: #FFFDFC; }
 .footer small { font-size: 11px; font-weight: 500; letter-spacing: .03em; color: #88777d; }
 .footer a, .footer-placeholder { font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
 .footer-placeholder { visibility: hidden; }
+.footer a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 calc(100% - 2px) / 100% 1px no-repeat; transition: color .22s ease; }
+.footer a .ft-arrow { display: inline-block; transition: transform .22s ease; }
+.footer a:hover { color: #dc467c; }
+.footer a:hover .ft-arrow { transform: translate(4px, -4px); }
+@media (prefers-reduced-motion: reduce) { .footer a, .footer a .ft-arrow { transition: none; } }
 
 /* ── 내부 페이지 공통 ── */
 .inner { max-width: 1200px; margin: auto; padding: 130px var(--space) 60px; }

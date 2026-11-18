@@ -7,7 +7,7 @@ export default function Footer({ hideContact = false }: { hideContact?: boolean 
       <small>© 2026 icherishmywork</small>
       {hideContact
         ? <span className="footer-placeholder" aria-hidden="true">CONTACT ↗</span>
-        : <Link to="/contact">CONTACT ↗</Link>}
+        : <Link to="/contact">CONTACT <span className="ft-arrow" aria-hidden="true">↗</span></Link>}
     </footer>
   );
 }
