@@ -2,23 +2,34 @@ import Footer from '../components/Footer';
 import { contact } from '../data/site';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
+const Arrow = () => (
+  <svg className="ct-arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M3.5 12.5 12.5 3.5M5 3.5h7.5V11" fill="none" stroke="currentColor" strokeWidth="1.4" />
+  </svg>
+);
+
 export default function Contact() {
   useDocumentTitle('CONTACT');
   return (
-    <div className="page">
-      <div className="inner">
-        <h1 className="page-title">CONTACT</h1>
-        <div className="contact-layout">
-          <div><p className="page-intro">{contact.intro}</p></div>
-          <div>
-            <a className="contact-line" href={`mailto:${contact.email}`}>
-              <strong>EMAIL</strong><span>{contact.email} ↗</span>
+    <div className="page ct-page">
+      <div className="ct-wide">
+        <h1 className="ct-title">CONTACT</h1>
+        <ul className="ct-list">
+          <li>
+            <a className="ct-row" href={`mailto:${contact.email}`}>
+              <span className="ct-label">EMAIL</span>
+              <span className="ct-value">{contact.email}</span>
+              <Arrow />
             </a>
-            <a className="contact-line" href={`https://www.instagram.com/${contact.instagram}/`} target="_blank" rel="noopener noreferrer">
-              <strong>INSTAGRAM</strong><span>@{contact.instagram} ↗</span>
+          </li>
+          <li>
+            <a className="ct-row" href={`https://www.instagram.com/${contact.instagram}/`} target="_blank" rel="noopener noreferrer">
+              <span className="ct-label">INSTAGRAM</span>
+              <span className="ct-value">@{contact.instagram}</span>
+              <Arrow />
             </a>
-          </div>
-        </div>
+          </li>
+        </ul>
         <Footer />
       </div>
     </div>
