@@ -29,6 +29,8 @@ const sentenceStarts = (t: string) => [...t.matchAll(/[.!?] (?=\S)/g)].map((m) =
 const DESC_BREAKS: Record<string, string[]> = { agape: ['전한 마음이', '흔적을 남긴다'] };
 /** INTERACTION 문장 단위 줄바꿈에서 제외 (글 흐름 유지) */
 const NO_SENTENCE_BREAK = ['storge'];
+/** INTERACTION 모바일 줄바꿈 지정 (문장 단위 대신) */
+const INTER_BREAKS: Record<string, string[]> = { storge: ['이어 붙이면', '이는 달라진'] };
 
 const srcSet = (s: string) =>
   s.split(',').map((p) => { const [path, w] = p.trim().split(/\s+/); return `${asset(path)} ${w}`; }).join(', ');
@@ -101,7 +103,7 @@ export default function WlrDetail() {
                 <p className="wlr-love-sub">{l.subtitle}</p>
                 <p className="wlr-love-body">{mobileBreaks(l.description, (DESC_BREAKS[l.key] ?? []).map((k) => l.description.indexOf(k)))}</p>
                 <h4 className="wlr-label">INTERACTION</h4>
-                <p className="wlr-love-body">{mobileBreaks(l.interaction, NO_SENTENCE_BREAK.includes(l.key) ? [] : sentenceStarts(l.interaction))}</p>
+                <p className="wlr-love-body">{mobileBreaks(l.interaction, NO_SENTENCE_BREAK.includes(l.key) ? (INTER_BREAKS[l.key] ?? []).map((k) => l.interaction.indexOf(k)) : sentenceStarts(l.interaction))}</p>
               </div>
             </article>
           ))}
