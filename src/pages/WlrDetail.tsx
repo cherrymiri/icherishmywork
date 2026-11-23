@@ -47,7 +47,7 @@ export default function WlrDetail() {
             const last = t.slice(b).split('사랑의 응답〉은');
             return (<>
               {t.slice(0, a)}<span className="pc-br"><br /></span>
-              {t.slice(a, b)}<span className="pc-br"><br /></span>
+              {t.slice(a, b)}
               {last[0]}<span className="nowrap">사랑의 응답〉은</span>{last[1]}
             </>);
           })()}</p>
