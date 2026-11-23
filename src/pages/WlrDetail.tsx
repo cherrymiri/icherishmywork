@@ -5,11 +5,28 @@ import { asset } from '../utils';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 /** 줄바꿈 시 붙어 있어야 하는 구절 */
-const KEEP = ['45초 동안'];
-const keep = (text: string) =>
-  KEEP.reduce<(string | JSX.Element)[]>((parts, k) => parts.flatMap((p) =>
+const KEEP = ['45초 동안', '새로운 선율이 시작된다.'];
+const keepTogether = (text: string, key: string) =>
+  KEEP.reduce<(string | JSX.Element)[]>((parts, k) => parts.flatMap((p, pi) =>
     typeof p !== 'string' || !p.includes(k) ? [p]
-      : p.split(k).flatMap((seg, i, arr) => (i < arr.length - 1 ? [seg, <span className="ib-mo-break" key={'b' + k + i} aria-hidden="true" />, <span className="nowrap" key={k + i}>{k}</span>] : [seg]))), [text]);
+      : p.split(k).flatMap((seg, i, arr) => (i < arr.length - 1 ? [seg, <span className="nowrap" key={`${key}-${k}-${pi}-${i}`}>{k}</span>] : [seg]))), [text]);
+
+/** 모바일 전용 줄바꿈: before 목록의 구절 바로 앞에서 줄을 바꿈 */
+const mobileBreaks = (text: string, before: number[]) => {
+  const cuts = [...new Set(before.filter((n) => n > 0 && n < text.length))].sort((a, b) => a - b);
+  const out: (string | JSX.Element)[] = [];
+  let prev = 0;
+  cuts.forEach((c, i) => {
+    out.push(...keepTogether(text.slice(prev, c), `s${i}`), <span className="ib-mo-break" key={`b${i}`} aria-hidden="true" />);
+    prev = c;
+  });
+  out.push(...keepTogether(text.slice(prev), 'end'));
+  return out;
+};
+/** 문장 시작 위치 (첫 문장 제외) */
+const sentenceStarts = (t: string) => [...t.matchAll(/[.!?] (?=\S)/g)].map((m) => (m.index ?? 0) + 2);
+/** 소개글 모바일 줄바꿈 지정 (작품별) */
+const DESC_BREAKS: Record<string, string[]> = { agape: ['전한 마음이', '흔적을 남긴다'] };
 
 const srcSet = (s: string) =>
   s.split(',').map((p) => { const [path, w] = p.trim().split(/\s+/); return `${asset(path)} ${w}`; }).join(', ');
@@ -80,9 +97,9 @@ export default function WlrDetail() {
               <div className="wlr-love-text">
                 <h3>{l.name} · {l.nameKo}</h3>
                 <p className="wlr-love-sub">{l.subtitle}</p>
-                <p className="wlr-love-body">{keep(l.description)}</p>
+                <p className="wlr-love-body">{mobileBreaks(l.description, (DESC_BREAKS[l.key] ?? []).map((k) => l.description.indexOf(k)))}</p>
                 <h4 className="wlr-label">INTERACTION</h4>
-                <p className="wlr-love-body">{keep(l.interaction)}</p>
+                <p className="wlr-love-body">{mobileBreaks(l.interaction, sentenceStarts(l.interaction))}</p>
               </div>
             </article>
           ))}
