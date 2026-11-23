@@ -40,7 +40,7 @@ export default function WlrDetail() {
 
         <section className="wlr-intro" aria-labelledby="wlr-intro-label">
           <h2 className="wlr-label" id="wlr-intro-label">작품 소개</h2>
-          <p>{d.intro}</p>
+          <p>{d.intro.split('사랑의 응답〉은').flatMap((part, i, arr) => i < arr.length - 1 ? [part, <span className="nowrap" key={i}>사랑의 응답〉은</span>] : [part])}</p>
         </section>
 
         <section className="wlr-loves" aria-labelledby="wlr-loves-label">
