@@ -415,7 +415,6 @@ html { background: #FFFDFC; }
   .wlr-head { margin-top: 40px; }
   .wlr-head h1 { font-size: clamp(27px, 7.4vw, 34px); }
   .wlr-intro { margin-top: 32px; }
-  .wlr-intro .pc-br { display: none; }
   .wlr-intro p, .wlr-love-body { font-size: 15px; line-height: 1.85; }
   .wlr-loves { margin-top: 72px; }
   .wlr-love { grid-template-columns: 1fr; gap: 26px; }
@@ -559,3 +558,11 @@ html { background: #FFFDFC; }
 /* When Love Responds 상세 — 단어 단위 줄바꿈 (이 페이지만) */
 .wlr-page .wlr-intro p, .wlr-page .wlr-love-text p { word-break: keep-all; overflow-wrap: break-word; text-wrap: pretty; }
 .nowrap { white-space: nowrap; }
+.wlr-intro .ib { display: none; }
+.wlr-intro .ib-both, .wlr-intro .ib-pc { display: block; }
+@media (max-width: 700px) {
+  .wlr-intro .ib-pc { display: none; }
+  .wlr-intro .ib-both, .wlr-intro .ib-mo { display: block; height: .55em; }
+  .wlr-page .wlr-intro p, .wlr-page .wlr-love-body { line-height: 1.65; }
+  .wlr-page .wlr-love-text p { text-wrap: wrap; }
+}

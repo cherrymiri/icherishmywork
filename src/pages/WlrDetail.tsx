@@ -4,6 +4,13 @@ import { wlrDetail as d } from '../data/wlrDetail';
 import { asset } from '../utils';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
+/** 줄바꿈 시 붙어 있어야 하는 구절 */
+const KEEP = ['45초 동안'];
+const keep = (text: string) =>
+  KEEP.reduce<(string | JSX.Element)[]>((parts, k) => parts.flatMap((p) =>
+    typeof p !== 'string' || !p.includes(k) ? [p]
+      : p.split(k).flatMap((seg, i, arr) => (i < arr.length - 1 ? [seg, <span className="nowrap" key={k + i}>{k}</span>] : [seg]))), [text]);
+
 const srcSet = (s: string) =>
   s.split(',').map((p) => { const [path, w] = p.trim().split(/\s+/); return `${asset(path)} ${w}`; }).join(', ');
 
@@ -41,14 +48,14 @@ export default function WlrDetail() {
         <section className="wlr-intro" aria-labelledby="wlr-intro-label">
           <h2 className="wlr-label" id="wlr-intro-label">작품 소개</h2>
           <p>{(() => {
-            // PC: 문장 끝에서 줄바꿈 (세 줄), 모바일: 자연스럽게 흐름
+            // PC: '존재한다.' 뒤, '싶었고' 뒤에서 줄바꿈 / 모바일: 문장 단위 세 묶음
             const t = d.intro;
-            const a = t.indexOf('친구와의');
-            const c = t.indexOf('〈When Love Responds');
+            const a = t.indexOf('친구와의'), b = t.indexOf('이토록'), c = t.indexOf('〈When Love Responds');
             const last = t.slice(c).split('사랑의 응답〉은');
             return (<>
-              {t.slice(0, a)}<span className="pc-br"><br /></span>
-              {t.slice(a, c)}<span className="pc-br"><br /></span>
+              {t.slice(0, a)}<span className="ib ib-both" aria-hidden="true" />
+              {t.slice(a, b)}<span className="ib ib-mo" aria-hidden="true" />
+              {t.slice(b, c)}<span className="ib ib-pc" aria-hidden="true" />
               {last[0]}<span className="nowrap">사랑의 응답〉은</span>{last[1]}
             </>);
           })()}</p>
@@ -73,9 +80,9 @@ export default function WlrDetail() {
               <div className="wlr-love-text">
                 <h3>{l.name} · {l.nameKo}</h3>
                 <p className="wlr-love-sub">{l.subtitle}</p>
-                <p className="wlr-love-body">{l.description}</p>
+                <p className="wlr-love-body">{keep(l.description)}</p>
                 <h4 className="wlr-label">INTERACTION</h4>
-                <p className="wlr-love-body">{l.interaction}</p>
+                <p className="wlr-love-body">{keep(l.interaction)}</p>
               </div>
             </article>
           ))}
