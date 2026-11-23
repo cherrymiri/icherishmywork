@@ -415,6 +415,7 @@ html { background: #FFFDFC; }
   .wlr-head { margin-top: 40px; }
   .wlr-head h1 { font-size: clamp(27px, 7.4vw, 34px); }
   .wlr-intro { margin-top: 32px; }
+  .wlr-intro .pc-br { display: none; }
   .wlr-intro p, .wlr-love-body { font-size: 15px; line-height: 1.85; }
   .wlr-loves { margin-top: 72px; }
   .wlr-love { grid-template-columns: 1fr; gap: 26px; }

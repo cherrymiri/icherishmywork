@@ -40,7 +40,17 @@ export default function WlrDetail() {
 
         <section className="wlr-intro" aria-labelledby="wlr-intro-label">
           <h2 className="wlr-label" id="wlr-intro-label">작품 소개</h2>
-          <p>{d.intro.split('사랑의 응답〉은').flatMap((part, i, arr) => i < arr.length - 1 ? [part, <span className="nowrap" key={i}>사랑의 응답〉은</span>] : [part])}</p>
+          <p>{(() => {
+            // PC: 문장 끝에서 줄바꿈 (세 줄), 모바일: 자연스럽게 흐름
+            const t = d.intro;
+            const a = t.indexOf('친구와의'), b = t.indexOf('이토록');
+            const last = t.slice(b).split('사랑의 응답〉은');
+            return (<>
+              {t.slice(0, a)}<span className="pc-br"><br /></span>
+              {t.slice(a, b)}<span className="pc-br"><br /></span>
+              {last[0]}<span className="nowrap">사랑의 응답〉은</span>{last[1]}
+            </>);
+          })()}</p>
         </section>
 
         <section className="wlr-loves" aria-labelledby="wlr-loves-label">
