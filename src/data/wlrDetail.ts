@@ -5,7 +5,7 @@
 export const wlrDetail = {
   "title": "When Love Responds, 사랑의 응답",
   "meta": "Interactive Media Art · 2026",
-  "intro": "우리는 [사랑]이라고 하면 흔히 연인 간의 열정적인 감정을 떠올릴 것이다. 하지만 눈에 보이지 않는 감정인 사랑은 훨씬 다양한 모습으로 존재한다. 친구와의 우정도, 가족을 향한 애증도, 무생명체를 향한 마음도 모두 사랑이 될 수 있다. 이토록 다양한 형태로 존재하는 사랑을 널리 알리고 싶었고, 〈When Love Responds, 사랑의 응답〉은 여기서 시작됐다.",
+  "intro": "우리는 [사랑]이라고 하면 흔히 연인 간의 열정적인 감정을 떠올릴 것이다. 하지만 눈에 보이지 않는 감정인 사랑은 훨씬 다양한 모습으로 존재한다. 친구와의 우정도, 가족을 향한 애증도, 무생명체를 향한 마음도 모두 사랑이 될 수 있다. 이토록 다양한 형태로 존재하는 사랑을 널리 알리고 싶었고 〈When Love Responds, 사랑의 응답〉은 여기서 시작됐다.",
   "galleryUrl": "https://when-love-responds.vercel.app/",
   "hero": {
     "src": "works/wlr-gallery-1600.webp",
