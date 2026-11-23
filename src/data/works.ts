@@ -81,7 +81,7 @@ const placeholderText = ['텍스트를 입력하세요.', '작품 소개와 제�
 export const works: Work[] = [
   {
     slug: 'when-love-responds',
-    title: 'When Love Responds',
+    title: 'When Love Responds, 사랑의 응답',
     subtitle: '사랑의 응답',
     category: 'Interactive Media Art',
     year: '2026',

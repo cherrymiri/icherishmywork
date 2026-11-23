@@ -9,7 +9,7 @@ const srcSet = (s: string) =>
 
 /** 〈When Love Responds, 사랑의 응답〉 전용 상세 페이지 */
 export default function WlrDetail() {
-  useDocumentTitle('When Love Responds');
+  useDocumentTitle('When Love Responds, 사랑의 응답');
   return (
     <div className="page project-page wlr-page">
       <div className="inner">
