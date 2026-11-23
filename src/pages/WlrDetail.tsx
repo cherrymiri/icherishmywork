@@ -13,19 +13,25 @@ export default function WlrDetail() {
   return (
     <div className="page project-page wlr-page">
       <div className="inner">
-        <a className="wlr-hero" href={d.galleryUrl} target="_blank" rel="noopener noreferrer" aria-label={`${d.title} — 체험웹 열기 (새 탭)`}>
-          <img
-            src={asset(d.hero.src)}
-            srcSet={srcSet(d.hero.srcSet)}
-            sizes="(max-width: 1200px) 100vw, 1100px"
-            width={d.hero.width}
-            height={d.hero.height}
-            alt="When Love Responds 통합 웹사이트 메인 화면 — EROS, LUDUS, PHILIA, STORGE, PRAGMA, AGAPE"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </a>
-        <p className="wlr-hero-caption">{d.heroCaption}</p>
+        <div className="wlr-video">
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            poster={asset('works/when-love-responds-orbs-1920.webp')}
+            width={1920}
+            height={1080}
+            aria-label={`${d.title} 작품 소개 영상`}
+          >
+            <source src={asset('works/when-love-responds-intro.mp4')} type="video/mp4" />
+          </video>
+        </div>
+        <div className="wlr-cta">
+          <a className="wlr-cta-btn" href={d.galleryUrl} target="_blank" rel="noopener noreferrer">
+            작품 직접 체험하기 <span className="wlr-cta-arrow" aria-hidden="true">↗</span>
+          </a>
+          <p className="wlr-cta-note">여섯 가지 사랑을 직접 경험해 보세요.</p>
+        </div>
 
         <header className="wlr-head">
           <h1>{d.title}</h1>
