@@ -559,10 +559,12 @@ html { background: #FFFDFC; }
 .wlr-page .wlr-intro p, .wlr-page .wlr-love-text p { word-break: keep-all; overflow-wrap: break-word; text-wrap: pretty; }
 .nowrap { white-space: nowrap; }
 .wlr-intro .ib { display: none; }
+.wlr-love-text .ib-mo-break { display: none; }
 .wlr-intro .ib-both, .wlr-intro .ib-pc { display: block; }
 @media (max-width: 700px) {
   .wlr-intro .ib-pc { display: none; }
   .wlr-intro .ib-both, .wlr-intro .ib-mo { display: block; height: .55em; }
   .wlr-page .wlr-intro p, .wlr-page .wlr-love-body { line-height: 1.65; }
   .wlr-page .wlr-love-text p { text-wrap: wrap; }
+  .wlr-love-text .ib-mo-break { display: block; }
 }

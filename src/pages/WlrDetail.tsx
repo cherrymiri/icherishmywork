@@ -9,7 +9,7 @@ const KEEP = ['45초 동안'];
 const keep = (text: string) =>
   KEEP.reduce<(string | JSX.Element)[]>((parts, k) => parts.flatMap((p) =>
     typeof p !== 'string' || !p.includes(k) ? [p]
-      : p.split(k).flatMap((seg, i, arr) => (i < arr.length - 1 ? [seg, <span className="nowrap" key={k + i}>{k}</span>] : [seg]))), [text]);
+      : p.split(k).flatMap((seg, i, arr) => (i < arr.length - 1 ? [seg, <span className="ib-mo-break" key={'b' + k + i} aria-hidden="true" />, <span className="nowrap" key={k + i}>{k}</span>] : [seg]))), [text]);
 
 const srcSet = (s: string) =>
   s.split(',').map((p) => { const [path, w] = p.trim().split(/\s+/); return `${asset(path)} ${w}`; }).join(', ');
