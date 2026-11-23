@@ -53,14 +53,17 @@ export interface Work {
  *   'logo-light' → 화이트 배경(#FFFDFC) + 원본 브라운 로고 (현재)
  *   'logo-dark'  → 블랙 배경(#111113) + 아이보리 로고 (보관)
  *   'objects'    → 여섯 오브제 썸네일 (보관)
+ *   'orbs'       → 영상 속 여섯 구슬 장면 (현재)
  * 바꾸려면 아래 한 단어만 바꾸면 됩니다.
  */
-const WLR_THUMBNAIL: 'logo-light' | 'logo-dark' | 'objects' = 'logo-light';
+const WLR_THUMBNAIL: 'orbs' | 'logo-light' | 'logo-dark' | 'objects' = 'orbs';
 
 const set = (name: string) =>
   [1200, 1920, 2560].map((w) => `works/when-love-responds-${name}-${w}.webp ${w}w`).join(', ');
 
 const wlrThumbs = {
+  // 졸업작품 영상 22.9초 프레임 (여섯 구슬) — 원본 1920×1080
+  orbs: { thumbnail: 'works/when-love-responds-orbs-1920.webp', thumbnailSrcSet: 'works/when-love-responds-orbs-1200.webp 1200w, works/when-love-responds-orbs-1920.webp 1920w', thumbnailBg: '#000000' },
   'logo-light': { thumbnail: 'works/when-love-responds-logo-light-1920.webp', thumbnailSrcSet: set('logo-light'), thumbnailBg: '#FFFDFC' },
   'logo-dark': { thumbnail: 'works/when-love-responds-logo-1920.webp', thumbnailSrcSet: set('logo'), thumbnailBg: '#111113' },
   objects: { thumbnail: 'works/when-love-responds-thumb-1920.webp', thumbnailSrcSet: set('thumb'), thumbnailBg: '#111113' },
