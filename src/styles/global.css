@@ -554,3 +554,6 @@ html { background: #FFFDFC; }
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* When Love Responds 상세 — 단어 단위 줄바꿈 (이 페이지만) */
+.wlr-page .wlr-intro p, .wlr-page .wlr-love-text p { word-break: keep-all; overflow-wrap: break-word; text-wrap: pretty; }
