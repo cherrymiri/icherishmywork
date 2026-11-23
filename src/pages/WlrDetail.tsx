@@ -43,11 +43,12 @@ export default function WlrDetail() {
           <p>{(() => {
             // PC: 문장 끝에서 줄바꿈 (세 줄), 모바일: 자연스럽게 흐름
             const t = d.intro;
-            const a = t.indexOf('친구와의'), b = t.indexOf('이토록');
-            const last = t.slice(b).split('사랑의 응답〉은');
+            const a = t.indexOf('친구와의');
+            const c = t.indexOf('〈When Love Responds');
+            const last = t.slice(c).split('사랑의 응답〉은');
             return (<>
               {t.slice(0, a)}<span className="pc-br"><br /></span>
-              {t.slice(a, b)}
+              {t.slice(a, c)}<span className="pc-br"><br /></span>
               {last[0]}<span className="nowrap">사랑의 응답〉은</span>{last[1]}
             </>);
           })()}</p>
