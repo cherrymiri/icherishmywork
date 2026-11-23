@@ -5,7 +5,7 @@ import { asset } from '../utils';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 /** 줄바꿈 시 붙어 있어야 하는 구절 */
-const KEEP = ['45초 동안', '새로운 선율이 시작된다.'];
+const KEEP = ['45초 동안'];
 const keepTogether = (text: string, key: string) =>
   KEEP.reduce<(string | JSX.Element)[]>((parts, k) => parts.flatMap((p, pi) =>
     typeof p !== 'string' || !p.includes(k) ? [p]
@@ -27,6 +27,8 @@ const mobileBreaks = (text: string, before: number[]) => {
 const sentenceStarts = (t: string) => [...t.matchAll(/[.!?] (?=\S)/g)].map((m) => (m.index ?? 0) + 2);
 /** 소개글 모바일 줄바꿈 지정 (작품별) */
 const DESC_BREAKS: Record<string, string[]> = { agape: ['전한 마음이', '흔적을 남긴다'] };
+/** INTERACTION 문장 단위 줄바꿈에서 제외 (글 흐름 유지) */
+const NO_SENTENCE_BREAK = ['storge'];
 
 const srcSet = (s: string) =>
   s.split(',').map((p) => { const [path, w] = p.trim().split(/\s+/); return `${asset(path)} ${w}`; }).join(', ');
@@ -99,7 +101,7 @@ export default function WlrDetail() {
                 <p className="wlr-love-sub">{l.subtitle}</p>
                 <p className="wlr-love-body">{mobileBreaks(l.description, (DESC_BREAKS[l.key] ?? []).map((k) => l.description.indexOf(k)))}</p>
                 <h4 className="wlr-label">INTERACTION</h4>
-                <p className="wlr-love-body">{mobileBreaks(l.interaction, sentenceStarts(l.interaction))}</p>
+                <p className="wlr-love-body">{mobileBreaks(l.interaction, NO_SENTENCE_BREAK.includes(l.key) ? [] : sentenceStarts(l.interaction))}</p>
               </div>
             </article>
           ))}
